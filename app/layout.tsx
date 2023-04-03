@@ -1,6 +1,7 @@
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import localFont from "next/font/local";
+import Footer from "./components/Footer";
 
 const gotham = localFont({
 	src: [
@@ -77,10 +78,11 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<html lang="fr" className={`${gotham.variable} ${bariol.variable}`}>
+		<html lang="fr" className={`${gotham.variable} ${bariol.variable} sm:scroll-smooth`}>
 			<body className=" bg-purple font-gotham">
 				<Navbar />
 				{children}
+				<Footer />
 			</body>
 		</html>
 	);
