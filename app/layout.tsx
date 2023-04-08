@@ -1,5 +1,5 @@
 import "./globals.css";
-import Navbar from "./components/Navbar";
+import Header from "./components/Header";
 import localFont from "next/font/local";
 import Footer from "./components/Footer";
 
@@ -70,6 +70,7 @@ const bariol = localFont({
 export const metadata = {
 	title: "Holistis website",
 	description: "la plateforme web d'Holistis",
+	authors: [{ name: "Sébastien Gautier", url: "https://www.sgautier.dev/" }],
 };
 
 export default function RootLayout({
@@ -79,8 +80,8 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="fr" className={`${gotham.variable} ${bariol.variable} sm:scroll-smooth`}>
-			<body className=" bg-purple font-gotham">
-				<Navbar />
+			<body className=" bg-purple font-gotham ">
+				<Header />
 				{children}
 				<Footer />
 			</body>
