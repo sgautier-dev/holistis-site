@@ -1,36 +1,96 @@
+"use client";
+import { useState, FormEvent } from "react";
+
 export default function NewsletterForm() {
+	const [email, setEmail] = useState("");
+	const [message, setMessage] = useState("");
+	const [isSubmitting, setIsSubmitting] = useState(false);
+
+	const validateEmail = (email: string) => {
+		const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+		return emailRegex.test(email);
+	};
+
+	const handleSubmit = async (e: FormEvent) => {
+		e.preventDefault();
+		setMessage("");
+
+		if (!validateEmail(email)) {
+			setMessage("Veuillez entrer une adresse e-mail valide.");
+			return;
+		}
+
+		setIsSubmitting(true);
+
+		try {
+			// console.log('email dans NewsletterForm: ', email)
+			const response = await fetch("/api/subscribe", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify({ email }),
+			});
+
+			const data = await response.json();
+			// console.log('data dans NewsletterForm: ', data)
+
+			if (response.ok) {
+				setMessage(data.message);
+			} else {
+				setMessage(
+					data.message || "Une erreur est survenue. Veuillez réessayer."
+				);
+			}
+		} catch (error) {
+			console.error(error);
+			setMessage("Une erreur est survenue. Veuillez réessayer.");
+		}
+
+		setIsSubmitting(false);
+	};
+
 	return (
 		<div className="relative isolate overflow-hidden bg-blue py-16 sm:py-24 lg:py-32">
 			<div className="mx-auto max-w-7xl px-6 lg:px-8">
 				<div className="mx-auto max-w-2xl lg:max-w-none grid place-content-center">
 					<div className="max-w-xl lg:max-w-lg">
 						<h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-						Se connecter à la newsletter.
+							S&apos;abonner à Overview, la newsletter
 						</h2>
 						<p className="mt-4 text-lg leading-8 text-gray-300">
-							Nostrud amet eu ullamco nisi aute in ad minim nostrud adipisicing
-							velit quis. Duis tempor incididunt dolore.
+							Avec cette newsletter, j’ai envie de vous partager ce qui nourrit
+							ma réflexion et mes accompagnements pour contribuer à la
+							transformation individuelle puis collective.
 						</p>
-						<div className="mt-6 flex max-w-md gap-x-4">
-							<label htmlFor="email-address" className="sr-only">
-								Adresse e-mail
-							</label>
-							<input
-								id="email-address"
-								name="email"
-								type="email"
-								autoComplete="email"
-								required
-								className="min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-orange sm:text-sm sm:leading-6"
-								placeholder="Saisissez votre e-mail"
-							/>
-							<button
-								type="submit"
-								className="flex-none rounded-md bg-orange px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-orange/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange"
-							>
-								S&apos;abonner
-							</button>
-						</div>
+						<form onSubmit={handleSubmit}>
+							<div className="mt-6 flex max-w-md gap-x-4">
+								<label htmlFor="email-address" className="sr-only">
+									Adresse e-mail
+								</label>
+								<input
+									id="email-address"
+									name="email"
+									type="email"
+									autoComplete="email"
+									placeholder="Saisissez votre e-mail"
+									value={email}
+									onChange={(e) => setEmail(e.target.value)}
+									required
+									className="min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-orange sm:text-sm sm:leading-6"
+								/>
+								<button
+									type="submit"
+									disabled={isSubmitting}
+									className="flex-none rounded-md bg-orange px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-orange/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange"
+								>
+									{isSubmitting ? "Envoie en cours..." : "Envoyer"}
+								</button>
+							</div>
+							{message && (
+								<p className="mt-4 text-right text-sm text-orange">{message}</p>
+							)}
+						</form>
 					</div>
 				</div>
 			</div>

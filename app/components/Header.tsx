@@ -24,7 +24,7 @@ export default function Header() {
 					className="hover:opacity-80 focus-visible:outline-orange"
 				>
 					<Image
-						src="/images/LogoHolistis-Orange+Violet.gif"
+						src="/images/LogoHolistis-Blanc.gif"
 						width={250}
 						height={100}
 						alt="logo holistis"
