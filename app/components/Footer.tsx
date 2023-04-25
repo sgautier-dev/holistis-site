@@ -11,6 +11,9 @@ function Footer() {
 				<p className="" translate="no">
 					Copyright &copy; <span>{year}</span>
 				</p>
+				<Link href="/privacy">
+					<p>Confidentialité</p>
+				</Link>
 				<Link href="https://www.sgautier.dev/" target="_blank">
 					<p translate="no">Designed by SG</p>
 				</Link>

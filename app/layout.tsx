@@ -80,7 +80,7 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="fr" className={`${gotham.variable} ${bariol.variable} sm:scroll-smooth`}>
-			<body className=" bg-purple font-gotham ">
+			<body className=" bg-purple font-gotham">
 				<Header />
 				{children}
 				<Footer />
