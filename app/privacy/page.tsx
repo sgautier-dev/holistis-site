@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Privacy() {
 	return (
-		<article className="container mx-auto py-8 text-white min-h-screen">
+		<article className="container mx-auto px-4 py-8 text-white min-h-screen">
 			<h1 className="text-3xl font-bold mb-4">Politique de confidentialité</h1>
 			<p className="mb-4">
 				Nous attachons une grande importance à la protection de vos données
@@ -52,6 +52,25 @@ export default function Privacy() {
 					formulaire de contact
 				</Link>{" "}
 				disponible sur notre site web.
+			</p>
+			<p className="mb-4">
+				Ce site est protégé par reCAPTCHA{" "}
+				<Link
+					href="https://policies.google.com/privacy"
+					target="_blank"
+					className="text-orange hover:text-gray-700"
+				>
+					les règles de confidentialité
+				</Link>{" "}
+				et{" "}
+				<Link
+					href="https://policies.google.com/terms"
+					target="_blank"
+					className="text-orange hover:text-gray-700"
+				>
+					les conditions d&apos;utilisation
+				</Link>{" "}
+				de Google s&apos;appliquent.
 			</p>
 		</article>
 	);

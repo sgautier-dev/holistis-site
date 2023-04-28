@@ -17,10 +17,10 @@ function classNames(...classes: string[]) {
 
 export default function Header() {
 	return (
-		<Disclosure as="nav" className="">
+		<Disclosure as="nav" className="sticky top-0 z-20">
 			{({ open }) => (
 				<>
-					<header className=" bg-blue p-6 sticky top-0 drop-shadow-xl z-10">
+					<header className="bg-blue p-6 drop-shadow-xl">
 						<div className="mx-auto relative flex items-center justify-between gap-1 flex-col sm:flex-row">
 							<Link
 								href="/"

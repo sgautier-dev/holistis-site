@@ -1,7 +1,7 @@
-// pages/api/subscribe.ts
 import { NextRequest, NextResponse } from "next/server";
 const mailchimp = require("@mailchimp/mailchimp_marketing");
 import logger from "@/lib/logger";
+const { OAuth2Client } = require("google-auth-library");
 
 mailchimp.setConfig({
 	apiKey: process.env.MAILCHIMP_API_KEY,
@@ -9,13 +9,26 @@ mailchimp.setConfig({
 });
 
 export async function POST(req: NextRequest) {
-	const { email } = await req.json();
-	// console.log("email dans API: ", email);
+	const { email, token } = await req.json();
+
+	const verifyRecaptchaUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${token}`;
 
 	if (!email)
 		return NextResponse.json({ message: "E-mail absent!" }, { status: 400 });
 
 	try {
+		const verifyRecaptcha = await fetch(verifyRecaptchaUrl);
+		const responseRecaptcha = await verifyRecaptcha.json();
+
+		if (!responseRecaptcha.success) {
+			return NextResponse.json(
+				{
+					message: "La vérification reCAPTCHA a échoué !",
+				},
+				{ status: 400 }
+			);
+		}
+
 		const listId = process.env.MAILCHIMP_AUDIENCE_ID;
 		const response = await mailchimp.lists.addListMember(listId, {
 			email_address: email,
