@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import logger from "@/lib/logger";
-const { nodemailer } = require("nodemailer");
+const nodemailer = require("nodemailer");
 
 // Create a transporter object with SMTP configuration
 const transporter = nodemailer.createTransport({
@@ -14,11 +14,15 @@ const transporter = nodemailer.createTransport({
 });
 
 export async function POST(req: NextRequest) {
-	const { firsName, lastName, email, message, token } = await req.json();
+	const { firstName, lastName, email, message, token } = await req.json();
+
+	console.log('SMTP_PASS', process.env.SMTP_PASS)
 
 	const verifyRecaptchaUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${token}`;
 
-	if (!email || !firsName || !lastName || !message)
+	// console.log('data: ',`${firstName} ${lastName} ${email} ${message}`)
+
+	if (!email || !firstName || !lastName || !message)
 		return NextResponse.json(
 			{ message: "Tous les champs du formulaire sont requis !" },
 			{ status: 400 }
@@ -38,7 +42,7 @@ export async function POST(req: NextRequest) {
 		}
 
 		await transporter.sendMail({
-			from: `${firsName} ${lastName} <${email}>`,
+			from: `${firstName} ${lastName} <${email}>`,
 			to: "hello@holistis.net",
 			subject: "Nouveau message du site Holitis",
 			text: message,
