@@ -1,19 +1,55 @@
 "use client";
-import { useState, FormEvent } from "react";
+import { useState, FormEvent, useEffect } from "react";
+import Script from "next/script";
 
 export default function NewsletterForm() {
 	const [email, setEmail] = useState("");
 	const [message, setMessage] = useState("");
 	const [isSubmitting, setIsSubmitting] = useState(false);
 
+	//hidding Google reCaptcha badge from page
+	useEffect(() => {
+		const style = document.createElement("style");
+		style.innerHTML = `
+		  .grecaptcha-badge {
+			visibility: hidden !important;
+		  }
+		`;
+		document.head.appendChild(style);
+	}, []);
+
 	const validateEmail = (email: string) => {
 		const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 		return emailRegex.test(email);
 	};
 
+	const getRecaptchaToken = async () => {
+		try {
+			const token = await window.grecaptcha.execute(
+				process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY,
+				{ action: "newsletter_form" }
+			);
+			return token;
+		} catch (error) {
+			console.error(error);
+			return null;
+		}
+	};
+
 	const handleSubmit = async (e: FormEvent) => {
 		e.preventDefault();
 		setMessage("");
+
+		const token = await getRecaptchaToken();
+		console.log("token", token);
+		if (!token) {
+			setMessage(
+				"Erreur lors de la vérification de sécurité. Veuillez réessayer."
+			);
+			setMessage("Envoyer");
+			setIsSubmitting(false);
+			return;
+		}
 
 		if (!validateEmail(email)) {
 			setMessage("Veuillez entrer une adresse e-mail valide.");
@@ -29,7 +65,7 @@ export default function NewsletterForm() {
 				headers: {
 					"Content-Type": "application/json",
 				},
-				body: JSON.stringify({ email }),
+				body: JSON.stringify({ email, token }),
 			});
 
 			const data = await response.json();
@@ -37,6 +73,7 @@ export default function NewsletterForm() {
 
 			if (response.ok) {
 				setMessage(data.message);
+				setEmail("");
 			} else {
 				setMessage(
 					data.message || "Une erreur est survenue. Veuillez réessayer."
@@ -91,6 +128,9 @@ export default function NewsletterForm() {
 								<p className="mt-4 text-right text-sm text-orange">{message}</p>
 							)}
 						</form>
+						<Script
+							src={`https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`}
+						/>
 					</div>
 				</div>
 			</div>

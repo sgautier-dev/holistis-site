@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 const mailchimp = require("@mailchimp/mailchimp_marketing");
 import logger from "@/lib/logger";
-const { OAuth2Client } = require("google-auth-library");
 
 mailchimp.setConfig({
 	apiKey: process.env.MAILCHIMP_API_KEY,
