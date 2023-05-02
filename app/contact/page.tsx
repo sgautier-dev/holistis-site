@@ -64,7 +64,7 @@ export default function Contact() {
 		setSubmitMessage("Enregistrement en cours...");
 
 		const token = await getRecaptchaToken();
-		console.log('token', token)
+		// console.log('token', token)
 		if (!token) {
 			setSubmitError(
 				"Erreur lors de la vérification de sécurité. Veuillez réessayer."
@@ -123,7 +123,7 @@ export default function Contact() {
 
 			// throw new Error('test erreur')
 		} catch (error: any) {
-			// console.error(error);
+			console.error(error);
 			setSubmitError(error.message);
 		} finally {
 			setTimeout(() => {

@@ -16,7 +16,7 @@ const transporter = nodemailer.createTransport({
 export async function POST(req: NextRequest) {
 	const { firstName, lastName, email, message, token } = await req.json();
 
-	console.log('SMTP_PASS', process.env.SMTP_PASS)
+	// console.log('SMTP_PASS', process.env.SMTP_PASS)
 
 	const verifyRecaptchaUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${token}`;
 
