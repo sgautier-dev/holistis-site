@@ -17,7 +17,7 @@ function classNames(...classes: string[]) {
 
 export default function Header() {
 	return (
-		<Disclosure as="nav" className="sticky top-0 z-20">
+		<Disclosure as="nav" className="sm:sticky sm:top-0 z-20">
 			{({ open }) => (
 				<>
 					<header className="bg-blue p-6 drop-shadow-xl">

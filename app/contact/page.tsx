@@ -134,7 +134,7 @@ export default function Contact() {
 	};
 
 	return (
-		<div className="isolate px-6 py-20 sm:py-26 lg:px-8 min-h-screen">
+		<div className="px-6 lg:px-8 py-20 sm:py-24  min-h-screen">
 			<div
 				className="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]"
 				aria-hidden="true"

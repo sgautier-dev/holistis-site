@@ -7,7 +7,7 @@ function Footer() {
 
 	return (
 		<>
-			<div className="flex justify-between items-center text-sm bg-blue p-4 sticky bottom-0 drop-shadow-xl z-10 text-white">
+			<div className="flex flex-col sm:flex-row justify-between items-center text-sm bg-blue p-4 sm:sticky sm:bottom-0 drop-shadow-xl z-10 text-white gap-3">
 				<p className="" translate="no">
 					Copyright &copy; <span>{year}</span>
 				</p>
@@ -17,6 +17,7 @@ function Footer() {
 				<Link href="https://www.sgautier.dev/" target="_blank">
 					<p translate="no">Designed by SG</p>
 				</Link>
+				<div className="flex items-center gap-4">
 				<Link
 					href="https://www.linkedin.com/in/borisbenet"
 					className="text-center hover:opacity-50"
@@ -28,6 +29,7 @@ function Footer() {
 				<a href="#" aria-label="back to top">
 					<BsArrowUpSquare size={20} />
 				</a>
+				</div>
 			</div>
 		</>
 	);
