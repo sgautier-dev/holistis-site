@@ -70,7 +70,7 @@ const bariol = localFont({
 export const metadata = {
 	title: "Holistis website",
 	description: "la plateforme web d'Holistis",
-	authors: [{ name: "Sébastien Gautier", url: "https://www.sgautier.dev/" }],
+	authors: [{ name: "Sébastien Gautier", url: "https://www.sgautier.dev" }],
 };
 
 export default function RootLayout({

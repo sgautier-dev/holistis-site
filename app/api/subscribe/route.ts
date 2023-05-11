@@ -38,7 +38,7 @@ export async function POST(req: NextRequest) {
 			// console.log('response status: ', response.status)
 			return NextResponse.json(
 				{
-					message: "Inscription réussie ! Merci de vous être abonné.",
+					message: "Abonnement confirmé ! Merci de vous être abonné.",
 				},
 				{ status: 200 }
 			);

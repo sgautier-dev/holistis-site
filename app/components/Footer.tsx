@@ -22,7 +22,7 @@ function Footer() {
 					href="https://www.linkedin.com/in/borisbenet"
 					className="text-center hover:opacity-50"
 					target="_blank"
-					aria-label="compte linkedin de Boris Benet, Holitis"
+					aria-label="compte linkedin de Boris Benet, Holistis"
 				>
 					<BsLinkedin size={20} />
 				</Link>

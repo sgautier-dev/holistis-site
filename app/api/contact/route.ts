@@ -44,7 +44,7 @@ export async function POST(req: NextRequest) {
 		await transporter.sendMail({
 			from: `${firstName} ${lastName} <${email}>`,
 			to: "hello@holistis.net",
-			subject: "Nouveau message du site Holitis",
+			subject: "Nouveau message du site Holistis",
 			text: message,
 		});
 

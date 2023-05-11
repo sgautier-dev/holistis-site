@@ -61,7 +61,7 @@ export default function Contact() {
 
 		setSubmitError("");
 		setIsSubmitting(true);
-		setSubmitMessage("Enregistrement en cours...");
+		setSubmitMessage("Envoi en cours...");
 
 		const token = await getRecaptchaToken();
 		// console.log('token', token)
@@ -264,7 +264,7 @@ export default function Contact() {
 							</Switch>
 						</div>
 						<Switch.Label className="text-sm leading-6 text-gray-400">
-							En sélectionnant cette option, je m&apos;inscris à la newsletter.
+							En sélectionnant cette option, je m&apos;abonne à la newsletter.
 						</Switch.Label>
 					</Switch.Group>
 				</div>
