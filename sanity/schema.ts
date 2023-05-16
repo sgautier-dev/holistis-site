@@ -5,7 +5,8 @@ import category from './schemas/category'
 import overview from './schemas/overview'
 import resource from './schemas/resource'
 import question from './schemas/question'
+import quote from './schemas/quote'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [overview, resource, question, category, blockContent],
+  types: [overview, resource, question, quote, category, blockContent],
 }
