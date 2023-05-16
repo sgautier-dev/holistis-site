@@ -1,9 +1,9 @@
 import { client } from "./client";
 
-export async function getRandomQuote() {
+export async function getRandomQuote(): Promise<BasicQuote> {
     try {
-      const query = '*[_type == "quote"]';
-      const quotes = await client.fetch(query);
+      const query = '*[_type == "quote"] {quoteText, quoteAuthor}';
+      const quotes: BasicQuote[] = await client.fetch(query);
   
       if (!quotes.length) {
         throw new Error("No quotes found");

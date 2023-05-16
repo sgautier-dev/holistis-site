@@ -18,17 +18,17 @@ function Footer() {
 					<p translate="no">Designed by SG</p>
 				</Link>
 				<div className="flex items-center gap-4">
-				<Link
-					href="https://www.linkedin.com/in/borisbenet"
-					className="text-center hover:opacity-50"
-					target="_blank"
-					aria-label="compte linkedin de Boris Benet, Holistis"
-				>
-					<BsLinkedin size={20} />
-				</Link>
-				<a href="#" aria-label="back to top">
-					<BsArrowUpSquare size={20} />
-				</a>
+					<Link
+						href="https://www.linkedin.com/in/borisbenet"
+						className="text-center hover:opacity-50"
+						target="_blank"
+						aria-label="compte linkedin de Boris Benet, Holistis"
+					>
+						<BsLinkedin size={20} />
+					</Link>
+					<a href="#" aria-label="back to top">
+						<BsArrowUpSquare size={20} />
+					</a>
 				</div>
 			</div>
 		</>

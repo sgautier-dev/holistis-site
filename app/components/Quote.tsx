@@ -3,7 +3,7 @@ import { getRandomQuote } from "@/sanity/lib/getRandomQuote";
 
 export default async function Quote() {
 	const quote = await getRandomQuote();
-  
+
 	return (
 		<div className="pb-16 pt-24 sm:pb-24 sm:pt-32 xl:pb-32">
 			<div className="bg-blue pb-20 sm:pb-24 xl:pb-0">

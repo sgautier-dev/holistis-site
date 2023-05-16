@@ -1,15 +1,11 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
+import { navigation } from "@/lib/navigation";
 
 import { Fragment } from "react";
 import { Disclosure, Transition } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-
-const navigation = [
-	{ name: "Accueil", href: "/", current: true },
-	{ name: "Contact", href: "/contact", current: false },
-];
 
 function classNames(...classes: string[]) {
 	return classes.filter(Boolean).join(" ");
@@ -71,7 +67,7 @@ export default function Header() {
 					>
 						<Disclosure.Panel className="bg-blue text-center absolute w-full">
 							<div className="space-y-1 px-2 pb-3 pt-2">
-								{navigation.map((item) => (
+								{navigation.menu.map((item) => (
 									<Disclosure.Button
 										key={item.name}
 										as="a"
