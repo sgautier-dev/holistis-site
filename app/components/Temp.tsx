@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { BsLinkedin, BsArrowUpSquare } from "react-icons/bs";
 import { navigation } from "@/lib/navigation";
+import NewsletterForm from "./NewsletterForm";
 
 export default function Example() {
 	const today = new Date();
@@ -47,7 +48,8 @@ export default function Example() {
 							</div>
 						</div>
 					</div>
-					<div className="mt-10 xl:mt-0">
+					{<NewsletterForm/>}
+					{/* <div className="mt-10 xl:mt-0">
 						<h3 className="text-sm font-semibold leading-6 text-white">
 							Subscribe to our newsletter
 						</h3>
@@ -77,7 +79,7 @@ export default function Example() {
 								</button>
 							</div>
 						</form>
-					</div>
+					</div> */}
 				</div>
 				<div className="mt-16 border-t border-white/10 pt-8 sm:mt-20 md:flex md:items-center md:justify-between lg:mt-24">
 					<div className="flex space-x-6 md:order-2 text-white">

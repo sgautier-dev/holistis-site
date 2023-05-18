@@ -5,13 +5,13 @@ export default async function Quote() {
 	const quote = await getRandomQuote();
 
 	return (
-		<div className="pb-16 pt-24 sm:pb-24 sm:pt-32 xl:pb-32">
-			<div className="bg-blue pb-20 sm:pb-24 xl:pb-0">
-				<div className="mx-auto flex max-w-7xl flex-col items-center gap-x-8 gap-y-10 px-6 sm:gap-y-8 lg:px-8 xl:flex-row xl:items-stretch">
-					<div className="-mt-8 w-full max-w-2xl xl:-mb-8 xl:w-96 xl:flex-none">
-						<div className="relative aspect-[2/1] h-full md:-mx-8 xl:mx-0 xl:aspect-auto">
+		<div className="pb-16 pt-0 sm:pb-24 xl:pb-32 ">
+			<div className="bg-blue pb-20 lg:pb-0 ">
+				<div className="mx-auto flex max-w-7xl flex-col items-center gap-x-8 gap-y-10 px-6 sm:gap-y-8 lg:px-8 lg:flex-row  ">
+					<div className="w-full max-w-2xl lg:w-96 lg:flex-none pt-6 lg:pt-0 ">
+						<div className="relative aspect-[3/1] h-full ">
 							<Image
-								className="absolute inset-0 h-full w-full rounded-2xl object-cover shadow-2xl"
+								className="absolute inset-x-1/4 h-full w-1/2 rounded-2xl object-cover shadow-2xl"
 								src="/images/gadiel-lazcano-LyssXmquYOc-unsplash-1920 X2880.jpg"
 								alt="wisdom"
 								width={600}
@@ -19,13 +19,14 @@ export default async function Quote() {
 							/>
 						</div>
 					</div>
-					<div className="w-full max-w-2xl xl:max-w-none xl:flex-auto xl:px-16 xl:py-24">
-						<figure className="relative isolate pt-6 sm:pt-12">
+					<div className="w-full max-w-2xl lg:max-w-none lg:flex-auto lg:py-12 
+">
+						<figure className="relative isolate pt-6 sm:pt-12 ">
 							<svg
 								viewBox="0 0 162 128"
 								fill="none"
 								aria-hidden="true"
-								className="absolute left-0 top-0 -z-10 h-32 stroke-orange/60"
+								className="absolute left-0 top-0 -z-10 h-20 stroke-orange"
 							>
 								<path
 									id="b56e9dab-6ccb-4d32-ad02-6b4bb5d9bbeb"
@@ -33,10 +34,10 @@ export default async function Quote() {
 								/>
 								<use href="#b56e9dab-6ccb-4d32-ad02-6b4bb5d9bbeb" x={86} />
 							</svg>
-							<blockquote className="text-xl font-semibold leading-8 text-white sm:text-2xl sm:leading-9">
+							<blockquote className="text-base font-semibold leading-8 text-white sm:text-lg sm:leading-9">
 								<p>{quote.quoteText}</p>
 							</blockquote>
-							<figcaption className="mt-8 text-base">
+							<figcaption className="mt-8 text-sm">
 								<div className="font-semibold text-white">
 									{quote.quoteAuthor}
 								</div>
