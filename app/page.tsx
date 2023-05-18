@@ -11,7 +11,7 @@ export default function Home() {
 			<HomeCards />
       {/* @ts-expect-error Async Server Component */}
 			<Quote />
-			<NewsletterForm />
+			{/* <NewsletterForm /> */}
 		</main>
 	);
 }

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { BsLinkedin, BsArrowUpSquare } from "react-icons/bs";
 import { navigation } from "@/lib/navigation";
 import NewsletterForm from "./NewsletterForm";
@@ -17,6 +18,9 @@ export default function Example() {
 					<div className="grid grid-cols-2 gap-8 xl:col-span-2">
 						<div className="md:grid md:grid-cols-2 md:gap-8">
 							<div>
+								<h3 className="text-sm font-semibold leading-6 text-white">
+									Pages
+								</h3>
 								<ul role="list" className="mt-6 space-y-4">
 									{navigation.menu.map((item) => (
 										<li key={item.name}>
@@ -30,9 +34,10 @@ export default function Example() {
 									))}
 								</ul>
 							</div>
-						</div>
-						<div className="md:grid md:grid-cols-2 md:gap-8">
 							<div className="mt-10 md:mt-0">
+								<h3 className="text-sm font-semibold leading-6 text-white">
+									Légal
+								</h3>
 								<ul role="list" className="mt-6 space-y-4">
 									{navigation.legal.map((item) => (
 										<li key={item.name}>
@@ -47,8 +52,29 @@ export default function Example() {
 								</ul>
 							</div>
 						</div>
+						<div className="md:grid md:grid-cols-2 md:gap-8">
+							<div className="aspect-[3/1] w-24">
+								<Image
+									className="object-fit shadow-2xl"
+									src="/images/logo_europe.png"
+									alt="logo europe"
+									width={166}
+									height={124}
+								/>
+							</div>
+							<div className="aspect-[3/1] w-28 mt-10 md:mt-0">
+								<Image
+									className="object-cover shadow-2xl"
+									src="/images/logo_region.webp"
+									alt="logo europe"
+									width={486}
+									height={230}
+								/>
+							</div>
+						</div>
 					</div>
-					{<NewsletterForm/>}
+					<div className="xl:col-span-1">{<NewsletterForm />}</div>
+
 					{/* <div className="mt-10 xl:mt-0">
 						<h3 className="text-sm font-semibold leading-6 text-white">
 							Subscribe to our newsletter
