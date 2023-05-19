@@ -13,7 +13,7 @@ export default function Example() {
 			<h2 id="footer-heading" className="sr-only">
 				Footer
 			</h2>
-			<div className="mx-auto max-w-7xl px-6 pb-8 pt-20 sm:pt-24 lg:px-8 lg:pt-32">
+			<div className="mx-auto max-w-7xl px-6 pb-8 pt-20 lg:px-8">
 				<div className="xl:grid xl:grid-cols-4 xl:gap-8">
 					<div className="grid grid-cols-2 gap-8 xl:col-span-2">
 						<div className="md:grid md:grid-cols-2 md:gap-8">
@@ -72,9 +72,10 @@ export default function Example() {
 								/>
 							</div>
 						</div>
-						
 					</div>
-					<div className="col-span-1 xl:col-span-2">{<NewsletterForm />}</div>
+					<div className="md:grid md:grid-cols-2 xl:grid-cols-none xl:col-span-2">
+						{<NewsletterForm />}
+					</div>
 				</div>
 				<div className="mt-16 border-t border-white/10 pt-8 sm:mt-20 md:flex md:items-center md:justify-between lg:mt-24">
 					<div className="flex space-x-6 md:order-2 text-white">
@@ -86,13 +87,13 @@ export default function Example() {
 						>
 							<BsLinkedin size={20} />
 						</Link>
-						<a href="#" aria-label="back to top">
-							<BsArrowUpSquare size={20} />
+						<a href="#" aria-label="back to top" className="fixed right-4 bottom-20 opacity-40 hover:opacity-70">
+							<BsArrowUpSquare size={40} />
 						</a>
 					</div>
 					<div className="flex space-x-6 mt-8 text-xs leading-5 text-gray-400 md:order-1 md:mt-0">
 						<p>
-							&copy; <span>{year}</span> Holitis, Inc. Tous droits réservés.
+							&copy; <span>{year}</span> Holitis, Tous droits réservés.
 						</p>
 						<Link href="https://www.sgautier.dev/" target="_blank">
 							<p translate="no">Designed by SG</p>

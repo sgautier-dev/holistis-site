@@ -84,7 +84,7 @@ export default function RootLayout({
 			<body className=" bg-purple font-gotham">
 				<Header />
 				{children}
-				<Footer />
+				{/* <Footer /> */}
 				<Example />
 			</body>
 		</html>

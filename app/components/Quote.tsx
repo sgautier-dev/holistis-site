@@ -42,7 +42,7 @@ export default async function Quote() {
 					<div className="col-end-1 w-16 lg:row-span-4 lg:w-72">
 						<Image
 							className="rounded-xl lg:rounded-3xl"
-							src="/images/gadiel-lazcano-5udmhGcRWV0-unsplash-1920 × 1280.jpg"
+							src="/images/gadiel-lazcano-LyssXmquYOc-unsplash-1920X2880.jpg"
 							alt="wisdom"
 							width={200}
 							height={100}
