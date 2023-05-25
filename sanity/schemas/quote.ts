@@ -1,23 +1,19 @@
 import { defineField, defineType } from "sanity";
 
 export default defineType({
-	name: "question",
-	title: "Questions",
+	name: "quote",
+	title: "Citations",
 	type: "document",
 	fields: [
 		defineField({
-			name: "questionText",
-			title: "Texte de la question",
+			name: "quoteText",
+			title: "Texte de la citation",
 			type: "string",
 		}),
-		defineField({
-			name: "slug",
-			title: "Slug",
-			type: "slug",
-			options: {
-				source: "title",
-				maxLength: 96,
-			},
+        defineField({
+			name: "quoteAuthor",
+			title: "Auteur de la citation",
+			type: "string",
 		}),
 		defineField({
 			name: "categories",
