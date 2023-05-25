@@ -93,7 +93,7 @@ export default function Example() {
 					</div>
 					<div className="flex space-x-6 mt-8 text-xs leading-5 text-gray-400 md:order-1 md:mt-0">
 						<p>
-							&copy; <span>{year}</span> Holitis, Tous droits réservés.
+							&copy; <span>{year}</span> Holistis, Tous droits réservés.
 						</p>
 						<Link href="https://www.sgautier.dev/" target="_blank">
 							<p translate="no">Designed by SG</p>

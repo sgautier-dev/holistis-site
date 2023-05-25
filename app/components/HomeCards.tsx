@@ -18,7 +18,7 @@ export default function HomeCards() {
 
 				<article className="relative isolate flex items-center justify-center overflow-hidden rounded-2xl h-96 shadow-md shadow-orange">
 					<Image
-						src="/images/Website_SSBD_bandeau-3300X1018.jpg"
+						src="/images/Website_SSBD_bandeau-3300X1020.jpg"
 						width={400}
 						height={133}
 						alt="Same Same Holistis"
