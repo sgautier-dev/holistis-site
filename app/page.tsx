@@ -1,4 +1,4 @@
-import NewsletterForm from "./components/NewsletterForm";
+// import NewsletterForm from "./components/NewsletterForm";
 import HomeCards from "./components/HomeCards";
 import Quote from "./components/Quote";
 

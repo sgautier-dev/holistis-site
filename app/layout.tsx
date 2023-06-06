@@ -79,8 +79,8 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<html lang="fr" className={`${gotham.variable} ${bariol.variable} sm:scroll-smooth`}>
-			<body className=" bg-purple font-gotham">
+		<html lang="fr" className={`${gotham.variable} ${bariol.variable} sm:scroll-smooth h-full`}>
+			<body className=" bg-purple font-gotham h-full">
 				<Header />
 				{children}
 				<Footer />
