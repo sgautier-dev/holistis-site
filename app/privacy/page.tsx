@@ -1,5 +1,9 @@
 import Link from "next/link";
 
+export const metadata = {
+	title: 'Confidentialité',
+}
+
 export default function Privacy() {
 	return (
 		<article className="container mx-auto px-4 py-8 text-white min-h-screen">
