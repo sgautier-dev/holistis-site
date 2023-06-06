@@ -9,17 +9,20 @@ export default defineType({
 			name: "quoteText",
 			title: "Texte de la citation",
 			type: "string",
+			validation: (Rule) => Rule.required(),
 		}),
         defineField({
 			name: "quoteAuthor",
 			title: "Auteur de la citation",
 			type: "string",
+			validation: (Rule) => Rule.required(),
 		}),
 		defineField({
 			name: "categories",
 			title: "Categories",
 			type: "array",
 			of: [{ type: "reference", to: { type: "category" } }],
+			validation: (Rule) => Rule.required(),
 		}),
 	],
 });

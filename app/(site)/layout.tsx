@@ -1,7 +1,7 @@
 import "./globals.css";
-import Header from "./components/Header";
+import Header from "../components/Header";
 import localFont from "next/font/local";
-import Footer from "./components/Footer";
+import Footer from "../components/Footer";
 
 const gotham = localFont({
 	src: [
@@ -79,7 +79,10 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<html lang="fr" className={`${gotham.variable} ${bariol.variable} sm:scroll-smooth h-full`}>
+		<html
+			lang="fr"
+			className={`${gotham.variable} ${bariol.variable} sm:scroll-smooth h-full`}
+		>
 			<body className=" bg-purple font-gotham h-full">
 				<Header />
 				{children}

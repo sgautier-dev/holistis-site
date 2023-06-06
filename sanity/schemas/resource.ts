@@ -9,6 +9,7 @@ export default defineType({
 			name: "title",
 			title: "Titre",
 			type: "string",
+			validation: (Rule) => Rule.required(),
 		}),
 		defineField({
 			name: "slug",
@@ -18,8 +19,9 @@ export default defineType({
 				source: "title",
 				maxLength: 96,
 			},
+			validation: (Rule) => Rule.required(),
 		}),
-		defineField({
+		{
 			name: "picto",
 			title: "Picto",
 			type: "image",
@@ -33,7 +35,8 @@ export default defineType({
 					title: "Alternative Text",
 				},
 			],
-		}),
+			validation: (Rule) => Rule.required(),
+		},
 		defineField({
 			name: "duration",
 			title: "Durée",
@@ -43,6 +46,7 @@ export default defineType({
 			name: "body",
 			title: "Texte",
 			type: "blockContent",
+			validation: (Rule) => Rule.required(),
 		}),
 		{
 			name: 'mediaType',
@@ -56,18 +60,22 @@ export default defineType({
 				// Add more options as needed...
 			  ],
 			  layout: 'radio', // or 'dropdown'
-			}
+			  
+			},
+			validation: (Rule) => Rule.required(),
 		  },
 		defineField({
 			name: "media",
 			title: "URL Media",
 			type: "url",
+			validation: (Rule) => Rule.required(),
 		}),
 		defineField({
 			name: "categories",
 			title: "Categories",
 			type: "array",
 			of: [{ type: "reference", to: { type: "category" } }],
+			validation: (Rule) => Rule.required(),
 		}),
 	],
 

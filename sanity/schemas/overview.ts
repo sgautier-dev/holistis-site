@@ -5,7 +5,7 @@ export default defineType({
 	title: "Overview",
 	type: "document",
 	fields: [
-		defineField({
+		{
 			name: "bannerImage",
 			title: "Image bandeau",
 			type: "image",
@@ -19,7 +19,8 @@ export default defineType({
 					title: "Alternative Text",
 				},
 			],
-		}),
+			validation: (Rule) => Rule.required(),
+		},
 		defineField({
 			name: "title",
 			title: "Titre",
@@ -33,8 +34,9 @@ export default defineType({
 				source: "title",
 				maxLength: 96,
 			},
+			validation: (Rule) => Rule.required(),
 		}),
-		defineField({
+		{
 			name: "mainImage",
 			title: "Image principale",
 			type: "image",
@@ -48,11 +50,13 @@ export default defineType({
 					title: "Alternative Text",
 				},
 			],
-		}),
+			validation: (Rule) => Rule.required(),
+		},
 		defineField({
 			name: "editoText",
 			title: "Texte édito",
 			type: "blockContent",
+			validation: (Rule) => Rule.required(),
 		}),
 		defineField({
 			name: "proposition180",
@@ -68,12 +72,13 @@ export default defineType({
 				},
 			],
 		}),
-		defineField({
+		{
 			name: "contents",
 			type: "array",
 			of: [{ type: "reference", to: [{ type: "resource" }] }],
 			title: "Contenus",
-		}),
+			validation: (Rule) => Rule.required(),
+		},
 		defineField({
 			name: "questions",
 			type: "object",
@@ -87,24 +92,20 @@ export default defineType({
 					title: "Questions",
 				},
 			],
+			validation: (Rule) => Rule.required(),
 		}),
 		defineField({
 			name: "categories",
 			title: "Categories",
 			type: "array",
 			of: [{ type: "reference", to: { type: "category" } }],
+			validation: (Rule) => Rule.required(),
 		}),
 		defineField({
 			name: "publishedAt",
 			title: "Publié le",
 			type: "datetime",
+			validation: (Rule) => Rule.required(),
 		}),
 	],
-
-	preview: {
-    select: {
-      title: 'title',
-      media: 'bannerImage',
-    },
-  },
 });

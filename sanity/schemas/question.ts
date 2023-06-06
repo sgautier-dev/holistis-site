@@ -9,6 +9,7 @@ export default defineType({
 			name: "questionText",
 			title: "Texte de la question",
 			type: "string",
+			validation: (Rule) => Rule.required(),
 		}),
 		defineField({
 			name: "slug",
@@ -24,6 +25,7 @@ export default defineType({
 			title: "Categories",
 			type: "array",
 			of: [{ type: "reference", to: { type: "category" } }],
+			validation: (Rule) => Rule.required(),
 		}),
 	],
 });

@@ -1,6 +1,6 @@
 // import NewsletterForm from "./components/NewsletterForm";
-import HomeCards from "./components/HomeCards";
-import Quote from "./components/Quote";
+import HomeCards from "../components/HomeCards";
+import Quote from "../components/Quote";
 
 export default function Home() {
 	return (
@@ -9,7 +9,7 @@ export default function Home() {
 				En cours de développement 🙏🏼
 			</h1> */}
 			<HomeCards />
-      {/* @ts-expect-error Async Server Component */}
+			{/* @ts-expect-error Async Server Component */}
 			<Quote />
 			{/* <NewsletterForm /> */}
 		</main>
