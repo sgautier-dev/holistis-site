@@ -13,7 +13,6 @@ export default function Overview() {
 					className="w-full object-cover"
 				/>
 			</div>
-			{/* @ts-expect-error Async Server Component */}
 			<Articles />
 		</main>
 	);

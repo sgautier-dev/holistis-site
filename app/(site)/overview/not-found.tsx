@@ -9,7 +9,7 @@ export default function NotFound() {
 						Introuvable
 					</h1>
 					<p className="mt-6 text-base leading-7 text-gray-300">
-						Désolé, nous n&apos;avons pas trouvé les articles que vous recherchez.
+						Désolé, nous n&apos;avons pas trouvé l&apos;article que vous recherchez.
 					</p>
 					<div className="mt-10 flex items-center justify-center gap-x-6">
 						<Link

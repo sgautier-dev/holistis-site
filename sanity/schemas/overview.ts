@@ -58,12 +58,28 @@ export default defineType({
 			type: "blockContent",
 			validation: (Rule) => Rule.required(),
 		}),
-		defineField({
+		{
 			name: "proposition180",
 			type: "object",
 			title: "Proposition 180",
 			fields: [
-				{ name: "pictoImage", type: "image", title: "Image picto" },
+				{
+					name: "pictoImage",
+					type: "image",
+					title: "Image picto",
+					initialValue: {
+						_type: "image",
+						asset: {
+							_type: "reference",
+							_ref: "image-5413934381884f698c86cf648e9bccfccb2a3202-90x96-gif",
+							//_id of the image found by running this query in the studio Vision:
+							// *[_type == "sanity.imageAsset"]{
+							// 	_id,
+							// 	originalFilename
+							//   }
+						},
+					},
+				},
 				{
 					name: "question",
 					type: "reference",
@@ -71,7 +87,7 @@ export default defineType({
 					title: "Question",
 				},
 			],
-		}),
+		},
 		{
 			name: "contents",
 			type: "array",
@@ -84,7 +100,18 @@ export default defineType({
 			type: "object",
 			title: "Questions",
 			fields: [
-				{ name: "image", type: "image", title: "Image" },
+				{
+					name: "image",
+					type: "image",
+					title: "Image",
+					initialValue: {
+						_type: "image",
+						asset: {
+							_type: "reference",
+							_ref: "image-d15dcccd491e24e7295882e127ceb91b292d8aaa-120x120-png",
+						},
+					},
+				},
 				{
 					name: "questions",
 					type: "array",
@@ -104,7 +131,7 @@ export default defineType({
 		defineField({
 			name: "publishedAt",
 			title: "Publié le",
-			type: "datetime",
+			type: "date",
 			validation: (Rule) => Rule.required(),
 		}),
 	],
