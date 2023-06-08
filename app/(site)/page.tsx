@@ -9,7 +9,6 @@ export default function Home() {
 				En cours de développement 🙏🏼
 			</h1> */}
 			<HomeCards />
-			{/* @ts-expect-error Async Server Component */}
 			<Quote />
 			{/* <NewsletterForm /> */}
 		</main>
