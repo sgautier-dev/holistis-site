@@ -74,6 +74,7 @@ interface Resource extends Base {
 	body: BlockContent[];
 	mediaType: 'web' | 'video' | 'image';
 	media: string;
+	alt: string;
 	categories: Category[];
 }
 

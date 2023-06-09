@@ -49,25 +49,30 @@ export default defineType({
 			validation: (Rule) => Rule.required(),
 		}),
 		{
-			name: 'mediaType',
-			type: 'string',
-			title: 'Type de media',
+			name: "mediaType",
+			type: "string",
+			title: "Type de media",
 			options: {
-			  list: [
-				{title: 'Web', value: 'web'},
-				{title: 'Vidéo', value: 'video'},
-				{title: 'Image', value: 'image'},
-				// Add more options as needed...
-			  ],
-			  layout: 'radio', // or 'dropdown'
-			  
+				list: [
+					{ title: "Web", value: "web" },
+					{ title: "Vidéo", value: "video" },
+					{ title: "Image", value: "image" },
+					// Add more options as needed...
+				],
+				layout: "radio", // or 'dropdown'
 			},
 			validation: (Rule) => Rule.required(),
-		  },
+		},
 		defineField({
 			name: "media",
-			title: "URL Media",
+			title: "URL du Media",
 			type: "url",
+			validation: (Rule) => Rule.required(),
+		}),
+		defineField({
+			name: "alt",
+			type: "string",
+			title: "Alternative Text du Media",
 			validation: (Rule) => Rule.required(),
 		}),
 		defineField({

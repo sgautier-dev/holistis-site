@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import { urlForImage } from "@/sanity/lib/image";
 import { PortableText } from "@portabletext/react";
+import ResourceMedia from "@/app/components/ResourceMedia";
 
 type Props = {
 	params: { article: string };
@@ -24,12 +25,11 @@ export default async function Article({ params }: Props) {
 	if (!article) {
 		notFound();
 	}
-	console.log(article.proposition180.question.questionText);
 
 	return (
-		<main className="px-6 lg:px-8 mx-auto max-w-7xl min-h-screen">
-			<div className="mx-auto max-w-3xl text-base leading-7 text-white">
-				<div className="mx-auto text-center my-16 sm:my-20">
+		<main className="px-6 lg:px-8 py-20 sm:py-24 mx-auto max-w-7xl min-h-screen">
+			<div className="mx-auto max-w-2xl text-base leading-7 text-white grid grid-cols-1 place-items-center">
+				<div className="mx-auto w-full text-center">
 					<Image
 						src={urlForImage(article.bannerImage).url()}
 						width={800}
@@ -38,7 +38,7 @@ export default async function Article({ params }: Props) {
 						className="w-full object-cover"
 					/>
 				</div>
-				<h1 className="mt-2 text-3xl font-bold tracking-tight text-orange sm:text-4xl">
+				<h1 className="mt-8 text-3xl uppercase font-semibold tracking-tight text-orange sm:text-4xl">
 					{article?.title}
 				</h1>
 				<figure className="mt-8">
@@ -51,11 +51,13 @@ export default async function Article({ params }: Props) {
 					/>
 				</figure>
 
-				<div className="mt-6 leading-7">
+				<div className="mt-6 leading-8">
 					<PortableText value={article.editoText} />
 				</div>
 
-				<figure className="mt-8 grid grid-cols-1 place-items-center">
+				<div className="mt-8 w-full border-t-2 border-orange" />
+
+				<figure className="mt-8 max-w-sm grid grid-cols-1 place-items-center">
 					<Image
 						className="bg-gray-50 object-cover"
 						src={urlForImage(article.proposition180.pictoImage).url()}
@@ -63,10 +65,65 @@ export default async function Article({ params }: Props) {
 						height={100}
 						alt={article.mainImage.alt}
 					/>
-					<p className="mt-6 text-orange text-xl">{article.proposition180.question.questionText}</p>
+					<h2 className="mt-8 text-orange uppercase text-xl font-semibold text-center">
+						{article.proposition180.question.questionText}
+					</h2>
 				</figure>
 
-				<div className="mt-16 max-w-2xl">
+				<div className="mt-8 w-full border-t-2 border-orange" />
+
+				<ul className=" w-full">
+					{article.contents.map((content) => (
+						<li
+							key={content._id}
+							className="mt-8 border-t border-dotted border-orange first:border-none"
+						>
+							<h2 className="mt-6 uppercase font-semibold">{content.title}</h2>
+							<div className="flex items-end gap-x-2">
+								<Image
+									className="mt-2 bg-gray-50 object-cover"
+									src={urlForImage(content.picto).url()}
+									width={50}
+									height={50}
+									alt={content.picto.alt}
+								/>
+								<p className="font-semibold">{content.duration}</p>
+							</div>
+							<PortableText value={content.body} />
+							<div className="mt-4">
+								<ResourceMedia
+									mediaType={content.mediaType}
+									media={content.media}
+									alt={content.alt}
+								/>
+							</div>
+
+							{/* Render other fields of the content */}
+						</li>
+					))}
+				</ul>
+
+				<div className="mt-8 w-full border-t-2 border-orange" />
+
+				<figure className="mt-8 max-w-lg grid grid-cols-1 place-items-center">
+					<Image
+						className="bg-gray-50 object-cover"
+						src={urlForImage(article.questions.image).url()}
+						width={120}
+						height={100}
+						alt={article.questions.image.alt}
+					/>
+					<p className="mt-2 font-semibold">- ET VOUS -</p>
+					{article.questions.questions.map((question) => (
+						<h3 className="font-semibold text-center" key={question._id}>
+							{question.questionText}
+						</h3>
+					))}
+				</figure>
+
+				<div className="mt-8 w-full border-t-2 border-orange" />
+
+				{/* <div className="mt-16 max-w-2xl">
 					<h2 className="text-2xl font-bold tracking-tight">
 						Everything you need to get up and running
 					</h2>
@@ -84,7 +141,7 @@ export default async function Article({ params }: Props) {
 						praesent donec est. Odio penatibus risus viverra tellus varius sit
 						neque erat velit.
 					</p>
-				</div>
+				</div> */}
 			</div>
 		</main>
 	);
