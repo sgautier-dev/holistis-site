@@ -43,14 +43,14 @@ export async function POST(req: NextRequest) {
 
 		await transporter.sendMail({
 			from: `${firstName} ${lastName} <${email}>`,
-			to: "hello@holistis.net",
+			to: process.env.SMTP_USER,
 			subject: "Nouveau message du site Holistis",
 			text: message,
 		});
 
         return NextResponse.json(
             {
-                message: "L'email a été envoyé avec succès !",
+                message: "E-mail envoyé avec succès !",
             },
             { status: 200 });
 
