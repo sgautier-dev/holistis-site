@@ -52,25 +52,26 @@ export default function Footer() {
 								</ul>
 							</div>
 						</div>
-						<div className="md:grid md:grid-cols-2 md:gap-8">
-							<div className="aspect-[3/1] w-24">
-								<Image
-									className="object-fit shadow-2xl"
-									src="/images/logo_europe.png"
-									alt="logo europe"
-									width={166}
-									height={124}
-								/>
-							</div>
-							<div className="aspect-[3/1] w-28 mt-10 md:mt-0">
-								<Image
-									className="object-cover shadow-2xl"
-									src="/images/logo_region.webp"
-									alt="logo europe"
-									width={486}
-									height={230}
-								/>
-							</div>
+						<div className="grid md:grid-cols-2 md:gap-3 place-items-center">
+							<Image
+								src="/images/LogoRegionReunion.jpg"
+								alt="logo de la région réunion"
+								width={80}
+								height={60}
+								className="aspect-auto object-cover"
+							/>
+							<Image
+								src="/images/LogoUnionEuropeenne.jpg"
+								alt="logo union européenne"
+								width={80}
+								height={60}
+								className="aspect-auto object-cover"
+							/>
+							<p className="text-center text-[10px] text-white col-span-2 self-start">
+								Ce site a été financé avec l’aide du FEDER (REACT-UE), dans le
+								cadre de la réponse de l’Union européenne à la pandémie
+								COVID-19. L’Europe s’engage à La Réunion.
+							</p>
 						</div>
 					</div>
 					<div className="md:grid md:grid-cols-2 xl:grid-cols-none xl:col-span-2">
@@ -87,7 +88,11 @@ export default function Footer() {
 						>
 							<BsLinkedin size={20} />
 						</a>
-						<a href="#" aria-label="back to top" className="fixed right-4 bottom-20 opacity-40 hover:opacity-70">
+						<a
+							href="#"
+							aria-label="back to top"
+							className="fixed right-4 bottom-20 opacity-40 hover:opacity-70"
+						>
 							<BsArrowUpSquare size={40} />
 						</a>
 					</div>
