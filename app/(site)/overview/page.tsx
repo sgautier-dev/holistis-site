@@ -17,6 +17,15 @@ export default function Overview() {
 					className="w-full object-cover"
 				/>
 			</div>
+			<p className="">
+				{/* L'overview effect est le "choc" cognitif, la prise de conscience,
+				l'effet ressenti par les astronautes la première fois qu'ils voient la
+				terre depuis l'espace. Plus de la moitié d'entre eux reconnaissent avoir
+				radicalement changé ensuite. <br />
+				Chacun de nous a vécu un ou plusieurs « overview effect », de plus ou
+				moins grande importance. C’est ce moment où notre perception change, et
+				où l’après ne sera plus comme avant. */}
+			</p>
 			<Articles />
 		</main>
 	);

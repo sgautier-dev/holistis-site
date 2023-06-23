@@ -12,7 +12,6 @@ export default function ResourceMedia({
 	media,
 	alt,
 }: ResourceMediaProps) {
-
 	if (mediaType === "video") {
 		// Construct the embedded YouTube URL
 		const embeddedUrl = getEmbeddedYouTubeUrl(media);
@@ -29,7 +28,10 @@ export default function ResourceMedia({
 			);
 		} else {
 			return (
-				<video controls className="w-full aspect-video rounded-xl border border-orange">
+				<video
+					controls
+					className="w-full aspect-video rounded-xl border border-orange"
+				>
 					<source src={media} />
 					Votre navigateur ne prend pas en charge le lecteur vidéo.
 				</video>
@@ -53,6 +55,8 @@ export default function ResourceMedia({
 				</a>
 			</div>
 		);
+	} else if (mediaType === "doc") {
+		//handle doc type
 	} else {
 		return null; // Handle unsupported media types or show a placeholder
 	}

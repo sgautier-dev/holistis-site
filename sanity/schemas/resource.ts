@@ -57,6 +57,7 @@ export default defineType({
 					{ title: "Web", value: "web" },
 					{ title: "Vidéo", value: "video" },
 					{ title: "Image", value: "image" },
+					{ title: "Doc", value: "doc" },
 					// Add more options as needed...
 				],
 				layout: "radio", // or 'dropdown'

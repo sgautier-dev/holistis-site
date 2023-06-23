@@ -27,8 +27,8 @@ export default async function Article({ params }: Props) {
 	}
 
 	return (
-		<main className="px-6 lg:px-8 py-20 sm:py-24 mx-auto max-w-7xl min-h-screen">
-			<div className="mx-auto max-w-2xl text-base leading-7 text-white grid grid-cols-1 place-items-center">
+		<main className="px-6 lg:px-8 py-20 sm:py-24 mx-auto max-w-7xl min-h-screen bg-white">
+			<div className="mx-auto max-w-2xl text-base leading-7 text-blue grid grid-cols-1 place-items-center">
 				<div className="mx-auto w-full text-center">
 					<Image
 						src={urlForImage(article.bannerImage).url()}
@@ -43,7 +43,7 @@ export default async function Article({ params }: Props) {
 				</h1>
 				<figure className="mt-8">
 					<Image
-						className="aspect-video rounded-xl bg-gray-50 object-cover border-2 border-orange"
+						className="aspect-video rounded-xl bg-gray-50 object-cover border-4 border-orange"
 						src={urlForImage(article.mainImage).url()}
 						width={600}
 						height={600}
@@ -55,7 +55,7 @@ export default async function Article({ params }: Props) {
 					<PortableText value={article.editoText} />
 				</div>
 
-				<div className="mt-8 w-full border-t-2 border-orange" />
+				<div className="mt-8 w-full border-t-4 border-orange" />
 
 				<figure className="mt-8 max-w-sm grid grid-cols-1 place-items-center">
 					<Image
@@ -70,7 +70,7 @@ export default async function Article({ params }: Props) {
 					</h2>
 				</figure>
 
-				<div className="mt-8 w-full border-t-2 border-orange" />
+				<div className="mt-8 w-full border-t-4 border-orange" />
 
 				<ul className=" w-full">
 					{article.contents.map((content) => (
@@ -103,7 +103,7 @@ export default async function Article({ params }: Props) {
 					))}
 				</ul>
 
-				<div className="mt-8 w-full border-t-2 border-orange" />
+				<div className="mt-8 w-full border-t-4 border-orange" />
 
 				<figure className="mt-8 max-w-lg grid grid-cols-1 place-items-center">
 					<Image
@@ -121,27 +121,7 @@ export default async function Article({ params }: Props) {
 					))}
 				</figure>
 
-				<div className="mt-8 w-full border-t-2 border-orange" />
-
-				{/* <div className="mt-16 max-w-2xl">
-					<h2 className="text-2xl font-bold tracking-tight">
-						Everything you need to get up and running
-					</h2>
-					<p className="mt-6">
-						Purus morbi dignissim senectus mattis adipiscing. Amet, massa quam
-						varius orci dapibus volutpat cras. In amet eu ridiculus leo sodales
-						cursus tristique. Tincidunt sed tempus ut viverra ridiculus non
-						molestie. Gravida quis fringilla amet eget dui tempor dignissim.
-						Facilisis auctor venenatis varius nunc, congue erat ac. Cras
-						fermentum convallis quam.
-					</p>
-					<p className="mt-8">
-						Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus
-						enim. Mattis mauris semper sed amet vitae sed turpis id. Id dolor
-						praesent donec est. Odio penatibus risus viverra tellus varius sit
-						neque erat velit.
-					</p>
-				</div> */}
+				<div className="mt-8 w-full border-t-4 border-orange" />
 			</div>
 		</main>
 	);

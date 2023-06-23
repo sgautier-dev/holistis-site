@@ -56,14 +56,14 @@ export default function Footer() {
 							<Image
 								src="/images/LogoRegionReunion.jpg"
 								alt="logo de la région réunion"
-								width={80}
+								width={100}
 								height={60}
 								className="aspect-auto object-cover"
 							/>
 							<Image
 								src="/images/LogoUnionEuropeenne.jpg"
 								alt="logo union européenne"
-								width={80}
+								width={100}
 								height={60}
 								className="aspect-auto object-cover"
 							/>

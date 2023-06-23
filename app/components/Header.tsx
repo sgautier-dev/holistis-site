@@ -76,7 +76,7 @@ export default function Header() {
 											item.current
 												? "bg-orange text-white"
 												: "text-gray-300 hover:bg-orange/20 hover:text-white",
-											"block rounded-md px-3 py-2 text-lg font-medium"
+											"block rounded-md px-3 py-2 text-2xl font-medium "
 										)}
 										aria-current={item.current ? "page" : undefined}
 									>
