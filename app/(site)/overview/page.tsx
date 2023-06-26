@@ -1,11 +1,31 @@
 import Articles from "@/app/components/Articles";
 import Image from "next/image";
+import { getAllOverview } from "@/sanity/lib/getAllOverview";
+import { notFound } from "next/navigation";
+
+import { client } from "@/sanity/lib/client";
+import { groq } from "next-sanity";
 
 export const metadata = {
 	title: "Overview",
 };
 
-export default function Overview() {
+export const revalidate = 10000;
+
+export default async function Overview() {
+	const query = groq`*[_type == "overview"] | order(publishedAt desc) {_id, title, slug, mainImage, publishedAt,
+		categories[]-> {
+		  _id,
+		  title
+		}}`;
+	const articles: Overview[] = await client.fetch(query, { next: { tags: ['overview'] } });
+
+	// const articles: Overview[] = await getAllOverview();
+
+	if (!articles.length) {
+		notFound();
+	}
+
 	return (
 		<main className="px-6 lg:px-8 py-20 sm:py-24 mx-auto max-w-7xl min-h-screen">
 			<div className="mx-auto max-w-md text-center">
@@ -26,7 +46,7 @@ export default function Overview() {
 				moins grande importance. C’est ce moment où notre perception change, et
 				où l’après ne sera plus comme avant. */}
 			</p>
-			<Articles />
+			<Articles articles={articles} />
 		</main>
 	);
 }

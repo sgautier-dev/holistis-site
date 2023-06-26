@@ -1,18 +1,14 @@
 import Image from "next/image";
-import { getAllOverview } from "@/sanity/lib/getAllOverview";
 import { urlForImage } from "@/sanity/lib/image";
 import { formatDate } from "@/sanity/lib/utils";
 import Link from "next/link";
-import { notFound } from "next/navigation";
 import CategoryFilter from "./CategoryFilter";
 
-export default async function Articles() {
-	const articles: Overview[] = await getAllOverview();
+type ArticlesProps = {
+	articles: Overview[];
+};
 
-	if (!articles.length) {
-		notFound();
-	}
-
+export default async function Articles({ articles }: ArticlesProps) {
 	// Retrieve unique categories from the articles
 	const uniqueCategories = Array.from(
 		new Set(
