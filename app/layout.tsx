@@ -1,7 +1,7 @@
 import "./globals.css";
-import Header from "../components/Header";
+import Header from "./components/Header";
 import localFont from "next/font/local";
-import Footer from "../components/Footer";
+import Footer from "./components/Footer";
 
 const gotham = localFont({
 	src: [

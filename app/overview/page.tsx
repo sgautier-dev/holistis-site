@@ -3,24 +3,14 @@ import Image from "next/image";
 import { getAllOverview } from "@/sanity/lib/getAllOverview";
 import { notFound } from "next/navigation";
 
-import { client } from "@/sanity/lib/client";
-import { groq } from "next-sanity";
-
 export const metadata = {
 	title: "Overview",
 };
 
-export const revalidate = 10000;
+export const revalidate = 86400;
 
 export default async function Overview() {
-	const query = groq`*[_type == "overview"] | order(publishedAt desc) {_id, title, slug, mainImage, publishedAt,
-		categories[]-> {
-		  _id,
-		  title
-		}}`;
-	const articles: Overview[] = await client.fetch(query, { next: { tags: ['overview'] } });
-
-	// const articles: Overview[] = await getAllOverview();
+	const articles: Overview[] = await getAllOverview();
 
 	if (!articles.length) {
 		notFound();
