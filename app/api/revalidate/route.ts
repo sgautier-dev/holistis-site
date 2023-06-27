@@ -2,8 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { revalidatePath } from "next/cache";
 
 export async function GET(request: NextRequest) {
+	// to use with a webhook: http://localhost:3000/api/revalidate?secret=xxxxx
 	const path = request.nextUrl.searchParams.get("path") || "/";
-    const tag = request.nextUrl.searchParams.get("tag");
 	const secret = request.nextUrl.searchParams.get("secret");
 
 	if (secret !== process.env.REVALIDATE_TOKEN) {
@@ -14,15 +14,6 @@ export async function GET(request: NextRequest) {
 			{ status: 401 }
 		);
 	}
-
-    // if (!tag) {
-    //     return NextResponse.json(
-	// 		{
-	// 			message: "Revalidation tag missing !",
-	// 		},
-	// 		{ status: 401 }
-	// 	);
-    // }
 
 	try {
 		revalidatePath(path);
