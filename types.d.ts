@@ -72,12 +72,11 @@ interface Resource extends Base {
 	picto: Image;
 	duration: string;
 	body: BlockContent[];
-	mediaType: 'web' | 'video' | 'image';
+	mediaType: "web" | "video" | "image";
 	media: string;
 	alt: string;
 	categories: Category[];
 }
-
 
 interface Question extends Base {
 	_type: "question";
@@ -92,16 +91,25 @@ interface Overview extends Base {
 	title: string;
 	slug: Slug;
 	mainImage: Image;
-	editoText: BlockContent[]; // replace by any if needed
-	proposition180: {
-		pictoImage: Image;
-		question: Question;
-	};
-	contents: Resource[];
+	editoText: BlockContent[];
+	sections: Section[];
 	questions: {
 		image: Image;
 		questions: Question[];
 	};
 	categories: Category[];
 	publishedAt: string;
+}
+
+interface Section {
+	proposition180: {
+		pictoImage: Image;
+		question: Question;
+	};
+	subsections: Subsection[];
+}
+
+interface Subsection {
+	title: string;
+	contents: Resource[];
 }

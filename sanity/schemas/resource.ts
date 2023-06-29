@@ -22,7 +22,7 @@ export default defineType({
 				{
 					name: "alt",
 					type: "string",
-					title: "Alternative Text",
+					title: "Texte alternatif",
 				},
 			],
 			validation: (Rule) => Rule.required(),
@@ -63,7 +63,7 @@ export default defineType({
 		defineField({
 			name: "alt",
 			type: "string",
-			title: "Alternative Text du Media",
+			title: "Texte alternatif du Media",
 			validation: (Rule) => Rule.required(),
 		}),
 		defineField({

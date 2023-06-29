@@ -60,7 +60,7 @@ export default async function Article({ params }: Props) {
 				<figure className="mt-8 max-w-sm grid grid-cols-1 place-items-center">
 					<Image
 						className="bg-gray-50 object-cover"
-						src={urlForImage(article.proposition180.pictoImage).url()}
+						src={urlForImage(article.theme.sections[0].proposition180.pictoImage).url()}
 						width={100}
 						height={100}
 						alt={article.mainImage.alt}

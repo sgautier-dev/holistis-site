@@ -16,17 +16,17 @@ export default defineType({
 				{
 					name: "alt",
 					type: "string",
-					title: "Alternative Text",
+					title: "Texte alternatif",
 				},
 			],
 			validation: (Rule) => Rule.required(),
 		},
 		defineField({
 			name: "title",
-			title: "Titre",
+			title: "Titre de l'article",
 			type: "string",
 		}),
-		defineField({
+		{
 			name: "slug",
 			title: "Slug",
 			type: "slug",
@@ -35,7 +35,7 @@ export default defineType({
 				maxLength: 96,
 			},
 			validation: (Rule) => Rule.required(),
-		}),
+		},
 		{
 			name: "mainImage",
 			title: "Image principale",
@@ -47,7 +47,7 @@ export default defineType({
 				{
 					name: "alt",
 					type: "string",
-					title: "Alternative Text",
+					title: "Texte alternatif",
 				},
 			],
 			validation: (Rule) => Rule.required(),
@@ -59,43 +59,117 @@ export default defineType({
 			validation: (Rule) => Rule.required(),
 		}),
 		{
-			name: "proposition180",
-			type: "object",
-			title: "Proposition 180",
-			fields: [
+			name: "sections",
+			title: "Sections",
+			type: "array",
+			of: [
 				{
-					name: "pictoImage",
-					type: "image",
-					title: "Image picto",
-					initialValue: {
-						_type: "image",
-						asset: {
-							_type: "reference",
-							_ref: "image-5413934381884f698c86cf648e9bccfccb2a3202-90x96-gif",
-							//_id of the image found by running this query in the studio Vision:
-							// *[_type == "sanity.imageAsset"]{
-							// 	_id,
-							// 	originalFilename
-							//   }
+					name: "section",
+					title: "Rubrique",
+					type: "object",
+					fields: [
+						{
+							name: "proposition180",
+							title: "Proposition 180",
+							type: "object",
+							fields: [
+								{
+									name: "pictoImage",
+									type: "image",
+									title: "Image picto",
+									initialValue: {
+										_type: "image",
+										asset: {
+											_type: "reference",
+											_ref: "image-5413934381884f698c86cf648e9bccfccb2a3202-90x96-gif",
+											//_id of the image found by running this query in the studio Vision:
+											// *[_type == "sanity.imageAsset"]{
+											// 	_id,
+											// 	originalFilename
+											//   }
+										},
+									},
+								},
+								{
+									name: "question",
+									type: "reference",
+									to: [{ type: "question" }],
+									title: "Question",
+								},
+							],
+							validation: (Rule) => Rule.required(),
 						},
-					},
-				},
-				{
-					name: "question",
-					type: "reference",
-					to: [{ type: "question" }],
-					title: "Question",
+						{
+							name: "subsections",
+							type: "array",
+							title: "Sous-thèmes",
+							of: [
+								{
+									name: "subsection",
+									title: "Sous-thème",
+									type: "object",
+									fields: [
+										defineField({
+											name: "title",
+											title: "Title",
+											type: "string",
+										}),
+										defineField({
+											name: "contents",
+											type: "array",
+											of: [{ type: "reference", to: [{ type: "resource" }] }],
+											title: "Contenus",
+											validation: (Rule) => Rule.required(),
+										}),
+										// Other fields for the "subsection" type
+									],
+								},
+							],
+							validation: (Rule) => Rule.required(),
+						},
+					],
 				},
 			],
-		},
-		{
-			name: "contents",
-			type: "array",
-			of: [{ type: "reference", to: [{ type: "resource" }] }],
-			title: "Contenus",
 			validation: (Rule) => Rule.required(),
 		},
-		defineField({
+		// {
+		// 	name: "proposition180",
+		// 	type: "object",
+		// 	title: "Proposition 180",
+		// 	fields: [
+		// 		{
+		// 			name: "pictoImage",
+		// 			type: "image",
+		// 			title: "Image picto",
+		// 			initialValue: {
+		// 				_type: "image",
+		// 				asset: {
+		// 					_type: "reference",
+		// 					_ref: "image-5413934381884f698c86cf648e9bccfccb2a3202-90x96-gif",
+		// 					//_id of the image found by running this query in the studio Vision:
+		// 					// *[_type == "sanity.imageAsset"]{
+		// 					// 	_id,
+		// 					// 	originalFilename
+		// 					//   }
+		// 				},
+		// 			},
+		// 		},
+		// 		{
+		// 			name: "question",
+		// 			type: "reference",
+		// 			to: [{ type: "question" }],
+		// 			title: "Question",
+		// 		},
+		// 	],
+		// },
+		// {
+		// 	name: "contents",
+		// 	type: "array",
+		// 	of: [{ type: "reference", to: [{ type: "resource" }] }],
+		// 	title: "Contenus",
+		// 	validation: (Rule) => Rule.required(),
+		// },
+		{
 			name: "questions",
 			type: "object",
 			title: "Questions",
@@ -120,10 +194,10 @@ export default defineType({
 				},
 			],
 			validation: (Rule) => Rule.required(),
-		}),
+		},
 		defineField({
 			name: "categories",
-			title: "Categories",
+			title: "Categories  de l'article",
 			type: "array",
 			of: [{ type: "reference", to: { type: "category" } }],
 			validation: (Rule) => Rule.required(),
