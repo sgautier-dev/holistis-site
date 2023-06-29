@@ -2,6 +2,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { navigation } from "@/lib/navigation";
+import { usePathname } from "next/navigation";
 
 import { Fragment } from "react";
 import { Disclosure, Transition } from "@headlessui/react";
@@ -12,6 +13,8 @@ function classNames(...classes: string[]) {
 }
 
 export default function Header() {
+	const pathname = usePathname();
+
 	return (
 		<Disclosure as="nav" className="sm:sticky sm:top-0 z-40">
 			{({ open }) => (
@@ -73,12 +76,14 @@ export default function Header() {
 										as="a"
 										href={item.href}
 										className={classNames(
-											item.current
+											pathname === item.href
 												? "bg-orange text-white"
 												: "text-gray-300 hover:bg-orange/20 hover:text-white",
 											"block rounded-md px-3 py-2 text-2xl font-medium "
 										)}
-										aria-current={item.current ? "page" : undefined}
+										aria-current={
+											pathname === item.href ? "page" : undefined
+										}
 									>
 										{item.name}
 									</Disclosure.Button>
