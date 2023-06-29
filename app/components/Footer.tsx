@@ -52,7 +52,7 @@ export default function Footer() {
 								</ul>
 							</div>
 						</div>
-						<div className="grid md:grid-cols-2 md:gap-3 place-items-center">
+						<div className="grid gap-1 md:grid-cols-2 md:gap-3 place-items-center">
 							<Image
 								src="/images/LogoRegionReunion.jpg"
 								alt="logo de la région réunion"
