@@ -4,6 +4,7 @@ import Image from "next/image";
 import { urlForImage } from "@/sanity/lib/image";
 import { PortableText } from "@portabletext/react";
 import ResourceMedia from "@/app/components/ResourceMedia";
+import React from "react";
 
 type Props = {
 	params: { article: string };
@@ -25,8 +26,6 @@ export default async function Article({ params }: Props) {
 	if (!article) {
 		notFound();
 	}
-
-	console.log(article)
 
 	return (
 		<main className="px-6 lg:px-8 py-20 sm:py-24 mx-auto max-w-7xl min-h-screen bg-white">
@@ -57,8 +56,8 @@ export default async function Article({ params }: Props) {
 					<PortableText value={article.editoText} />
 				</div>
 
-				{article.sections.map((section, index) => (
-					<div key={index}>
+				{article.sections?.map((section, index) => (
+					<React.Fragment key={index}>
 						<div className="mt-8 w-full border-t-4 border-orange" />
 
 						<figure className="mt-8 max-w-sm grid grid-cols-1 place-items-center">
@@ -69,16 +68,15 @@ export default async function Article({ params }: Props) {
 								height={100}
 								alt={article.mainImage.alt}
 							/>
-							<h2 className="mt-8 text-orange uppercase text-xl font-semibold text-center">
+							<h2 className="mt-8 text-orange uppercase text-2xl font-semibold text-center">
 								{section.proposition180.question.questionText}
 							</h2>
 						</figure>
 
-						<div className="mt-8 w-full border-t-4 border-orange" />
-
 						{section.subsections.map((subsection, index) => (
-							<div key={index}>
-								<h2 className="mt-6 uppercase font-semibold">
+							<React.Fragment key={index}>
+								<div className="mt-8 w-full border-t-4 border-orange" />
+								<h2 className="mt-6 uppercase font-semibold text-xl text-center text-orange">
 									{subsection.title}
 								</h2>
 								<ul className=" w-full">
@@ -87,9 +85,9 @@ export default async function Article({ params }: Props) {
 											key={content._id}
 											className="mt-8 border-t border-dotted border-orange first:border-none"
 										>
-											<h2 className="mt-6 uppercase font-semibold">
+											<h3 className="mt-6 uppercase font-bold ">
 												{content.title}
-											</h2>
+											</h3>
 											<div className="flex items-end gap-x-2">
 												<Image
 													className="mt-2 bg-gray-50 object-cover"
@@ -111,9 +109,9 @@ export default async function Article({ params }: Props) {
 										</li>
 									))}
 								</ul>
-							</div>
+							</React.Fragment>
 						))}
-					</div>
+					</React.Fragment>
 				))}
 
 				<div className="mt-8 w-full border-t-4 border-orange" />

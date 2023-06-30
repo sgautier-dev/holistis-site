@@ -9,14 +9,14 @@ export async function getArticle(slug: string): Promise<Overview> {
 		slug,
 		mainImage,
 		editoText,
-		sections[]->{
+		sections[]{
 			proposition180 {
 			  pictoImage,
 			  question->{
 				questionText
 			  }
 			},
-			subsections[]->{
+			subsections[]{
 			  title,
 			  contents[]->{
 				_id,
@@ -39,6 +39,7 @@ export async function getArticle(slug: string): Promise<Overview> {
 		},
 		publishedAt
 	  }`;
+	  
 	const article: Overview = await client.fetch(query, { slug });
 
 	return article;
