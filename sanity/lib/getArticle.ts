@@ -21,11 +21,17 @@ export async function getArticle(slug: string): Promise<Overview> {
 			  contents[]->{
 				_id,
 				title,
-				picto,
+				picto->{
+					image,
+					alt
+				},
 				duration,
 				body,
 				mediaType,
-				media,
+				media{
+              		...,
+              		'mediaUrl': coalesce(webUrl, videoUrl, imageUrl.asset->url, docFile.asset->url, audioFile.asset->url)
+            	},
 				alt
 			  }
 			}
@@ -39,7 +45,7 @@ export async function getArticle(slug: string): Promise<Overview> {
 		},
 		publishedAt
 	  }`;
-	  
+
 	const article: Overview = await client.fetch(query, { slug });
 
 	return article;

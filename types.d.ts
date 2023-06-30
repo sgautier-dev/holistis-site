@@ -65,15 +65,30 @@ interface Category extends Base {
 	description: string;
 }
 
+interface MediaContent {
+	webUrl?: string;
+	videoUrl?: string;
+	imageUrl?: string;
+	docFile?: string;
+	audioFile?: string;
+	mediaUrl?: string;
+}
+
+interface PictoImage extends Base {
+	_type: "pictoImage";
+	image: Image;
+	alt: string;
+}
+
 interface Resource extends Base {
 	_type: "resource";
 	title: string;
 	slug: Slug;
-	picto: Image;
+	picto: PictoImage;
 	duration: string;
 	body: BlockContent[];
-	mediaType: "web" | "video" | "image";
-	media: string;
+	mediaType: "web" | "video" | "image" | "doc" | "audio";
+	media: MediaContent;
 	alt: string;
 	categories: Category[];
 }

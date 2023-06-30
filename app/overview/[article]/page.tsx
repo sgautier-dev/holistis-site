@@ -91,7 +91,7 @@ export default async function Article({ params }: Props) {
 											<div className="flex items-end gap-x-2">
 												<Image
 													className="mt-2 bg-gray-50 object-cover"
-													src={urlForImage(content.picto).url()}
+													src={urlForImage(content.picto.image).url()}
 													width={50}
 													height={50}
 													alt={content.picto.alt}

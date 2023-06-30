@@ -169,7 +169,7 @@ export default defineType({
 		},
 		defineField({
 			name: "categories",
-			title: "Categories  de l'article",
+			title: "Catégories  de l'article",
 			type: "array",
 			of: [{ type: "reference", to: { type: "category" } }],
 			validation: (Rule) => Rule.required(),
