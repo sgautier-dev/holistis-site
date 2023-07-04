@@ -27,15 +27,20 @@ export default async function Overview() {
 					className="w-full object-cover"
 				/>
 			</div>
-			<p className="">
-				{/* L'overview effect est le "choc" cognitif, la prise de conscience,
-				l'effet ressenti par les astronautes la première fois qu'ils voient la
-				terre depuis l'espace. Plus de la moitié d'entre eux reconnaissent avoir
-				radicalement changé ensuite. <br />
-				Chacun de nous a vécu un ou plusieurs « overview effect », de plus ou
-				moins grande importance. C’est ce moment où notre perception change, et
-				où l’après ne sera plus comme avant. */}
-			</p>
+			<figure className="border-l border-orange pl-8 mt-8">
+				<blockquote className="text-lg font-semibold text-white">
+					<p>
+						L&apos;overview effect est le &apos;choc&apos; cognitif, la prise de
+						conscience, l&apos;effet ressenti par les astronautes la première
+						fois qu&apos;ils voient la terre depuis l&apos;espace. Plus de la
+						moitié d&apos;entre eux reconnaissent avoir radicalement changé
+						ensuite. Chacun de nous a vécu un ou plusieurs « overview effect »,
+						de plus ou moins grande importance. C’est ce moment où notre
+						perception change, et où l’après ne sera plus comme avant.
+					</p>
+				</blockquote>
+			</figure>
+
 			<Articles articles={articles} />
 		</main>
 	);
