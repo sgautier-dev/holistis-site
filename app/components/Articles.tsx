@@ -3,7 +3,7 @@ import Image from "next/image";
 import { urlForImage } from "@/sanity/lib/image";
 import { formatDate } from "@/sanity/lib/utils";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import CategoryFilter from "./CategoryFilter";
 
 type ArticlesProps = {
@@ -22,14 +22,17 @@ export default async function Articles({ articles }: ArticlesProps) {
 		)
 	);
 
-	const filteredArticles =
-		selectedCategory === "Tout"
-			? articles
-			: articles.filter((article) =>
-					article.categories
-						.map((category) => category.title)
-						.includes(selectedCategory)
-			  );
+	const filteredArticles = useMemo(
+		() =>
+			selectedCategory === "Tout"
+				? articles
+				: articles.filter((article) =>
+						article.categories
+							.map((category) => category.title)
+							.includes(selectedCategory)
+				  ),
+		[selectedCategory, articles]
+	);
 
 	return (
 		<div className="mx-auto mt-16 max-w-7xl px-6 lg:px-8">
