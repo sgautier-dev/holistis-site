@@ -27,7 +27,7 @@ export default async function Overview() {
 					className="w-full object-cover"
 				/>
 			</div>
-			<figure className="border-l border-orange pl-8 mt-8">
+			<figure id="targetElement" className="border-l border-orange pl-8 mt-8">
 				<blockquote className="text-lg font-semibold text-white">
 					<p>
 						L&apos;overview effect est le &apos;choc&apos; cognitif, la prise de

@@ -60,7 +60,13 @@ export default function CategoryFilter({
 									<button
 										onClick={() => {
 											setSelectedCategory(category);
-											window.scrollTo(0, 200); // Scroll back up when a category is selected
+											// Find the target element and scroll to it
+											const targetElement =
+												document.getElementById("targetElement");
+											targetElement?.scrollIntoView({
+												behavior: "smooth",
+												block: "start",
+											});
 										}}
 										className={classNames(
 											active ? "bg-gray-100" : "",
