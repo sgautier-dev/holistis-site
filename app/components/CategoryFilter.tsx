@@ -58,7 +58,10 @@ export default function CategoryFilter({
 							<Menu.Item key={category}>
 								{({ active }) => (
 									<button
-										onClick={() => setSelectedCategory(category)}
+										onClick={() => {
+											setSelectedCategory(category);
+											window.scrollTo(0, 200); // Scroll back up when a category is selected
+										}}
 										className={classNames(
 											active ? "bg-gray-100" : "",
 											"block px-4 py-2 text-sm font-medium text-gray-900"
