@@ -10,7 +10,7 @@ type ArticlesProps = {
 	articles: Overview[];
 };
 
-export default async function Articles({ articles }: ArticlesProps) {
+export default function Articles({ articles }: ArticlesProps) {
 	const [selectedCategory, setSelectedCategory] = useState("Tout");
 
 	// Retrieve unique categories from the articles
