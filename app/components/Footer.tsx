@@ -21,7 +21,7 @@ export default function Footer() {
 								<h3 className="text-sm font-semibold leading-6 text-white">
 									Pages
 								</h3>
-								<ul role="list" className="mt-6 space-y-4">
+								<ul className="mt-6 space-y-4">
 									{navigation.menu.map((item) => (
 										<li key={item.name}>
 											<a
@@ -38,7 +38,7 @@ export default function Footer() {
 								<h3 className="text-sm font-semibold leading-6 text-white">
 									Légal
 								</h3>
-								<ul role="list" className="mt-6 space-y-4">
+								<ul className="mt-6 space-y-4">
 									{navigation.legal.map((item) => (
 										<li key={item.name}>
 											<a
