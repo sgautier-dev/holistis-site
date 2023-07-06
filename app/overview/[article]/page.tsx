@@ -17,8 +17,14 @@ export async function generateMetadata({ params }: Props) {
 	const slug = params.article;
 	const article = await getArticle(slug);
 
+	if (!article) {
+		return {
+			title: "Article non trouvé",
+		}
+	}
+
 	return {
-		title: article?.title,
+		title: article.title,
 	};
 }
 
