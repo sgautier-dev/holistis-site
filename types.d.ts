@@ -1,5 +1,3 @@
-declare module '@uidotdev/usehooks';
-
 interface Window {
 	grecaptcha: ReCaptchaInstance;
 }
@@ -129,4 +127,13 @@ interface Section {
 interface Subsection {
 	title: string;
 	contents: Resource[];
+}
+
+interface SameSame extends Base {
+	_type: "samesame";
+	title: string;
+	image: Image;
+	text: BlockContent[];
+	publishedAt: string;
+	categories: Category[];
 }
