@@ -18,7 +18,7 @@ export default async function Overview() {
 
 	return (
 		<main className="px-6 lg:px-8 py-20 sm:py-24 mx-auto max-w-7xl min-h-screen">
-			<div className="mx-auto max-w-md text-center">
+			<div id="targetElement" className="mx-auto max-w-md text-center">
 				<Image
 					src="/images/Website_Overview_bandeau-3300X1018.jpg"
 					width={400}
@@ -27,7 +27,7 @@ export default async function Overview() {
 					className="w-full object-cover"
 				/>
 			</div>
-			<figure id="targetElement" className="border-l border-orange pl-8 mt-8">
+			<figure className="border-l border-orange pl-8 mt-8">
 				<blockquote className="text-lg font-semibold text-white">
 					<p>
 						L&apos;overview effect est le &apos;choc&apos; cognitif, la prise de

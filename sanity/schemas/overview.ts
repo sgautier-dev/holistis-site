@@ -62,7 +62,7 @@ export default defineType({
 		}),
 		{
 			name: "sections",
-			title: "Sections",
+			title: "Rubriques",
 			type: "array",
 			of: [
 				{
@@ -106,7 +106,7 @@ export default defineType({
 						{
 							name: "subsections",
 							type: "array",
-							title: "Sous-thèmes",
+							title: "Sous-thématiques",
 							of: [
 								{
 									name: "subsection",

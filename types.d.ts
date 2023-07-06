@@ -1,3 +1,5 @@
+declare module '@uidotdev/usehooks';
+
 interface Window {
 	grecaptcha: ReCaptchaInstance;
 }
