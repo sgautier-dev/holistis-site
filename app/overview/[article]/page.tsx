@@ -7,6 +7,7 @@ import { PortableText } from "@portabletext/react";
 import ResourceMedia from "@/app/components/ResourceMedia";
 import React from "react";
 import { ChevronDoubleLeftIcon } from "@heroicons/react/24/outline";
+import { getAllOverview } from "@/sanity/lib/getAllOverview";
 
 type Props = {
 	params: { article: string };
@@ -19,6 +20,14 @@ export async function generateMetadata({ params }: Props) {
 	return {
 		title: article?.title,
 	};
+}
+
+export async function generateStaticParams() {
+	const articles: Overview[] = await getAllOverview();
+
+	return articles.map((article) => ({
+		slug: article.slug,
+	}));
 }
 
 export default async function Article({ params }: Props) {
