@@ -7,7 +7,7 @@ export const metadata = {
 	title: "Overview",
 };
 
-// export const revalidate = 60; //to get freshest data from sanity
+export const revalidate = 60; //to get freshest data from sanity
 
 export default async function Overview() {
 	const articles: Overview[] = await getAllOverview();
