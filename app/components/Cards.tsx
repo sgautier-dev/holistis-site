@@ -18,7 +18,7 @@ export default function Cards({ cards }: SameSameProps) {
 						className="flex flex-col items-start justify-between"
 					>
 						<div className="group relative">
-							<div className="relative w-full group-hover:scale-105 transition-transform">
+							<div className="relative w-full group-hover:scale-105 transition-transform duration-500 ease-in-out">
 								<Image
 									src={urlForImage(card.image).url()}
 									alt={card.image.alt}
@@ -35,10 +35,10 @@ export default function Cards({ cards }: SameSameProps) {
 									</time>
 								</div>
 
-								<h3 className="mt-3 text-lg font-semibold leading-6 text-orange group-hover:scale-105 transition-transform">
+								<h3 className="mt-3 text-lg font-semibold leading-6 text-orange group-hover:scale-105 transition-transform duration-500 ease-in-out">
 									{card.title}
 								</h3>
-								<div className="mt-5 text-sm leading-6 text-white line-clamp-2 group-hover:line-clamp-none transition-all duration-700 ease-in-out">
+								<div className="mt-5 text-sm leading-6 text-white line-clamp-2 group-hover:line-clamp-none">
 									<PortableText value={card.text} />
 								</div>
 							</div>
