@@ -23,7 +23,7 @@ export default async function Resources() {
 					src="/images/Website_Ressources_bandeau-330X1022.jpg"
 					width={400}
 					height={133}
-					alt="SameSame Holistis"
+					alt="Ressources Holistis"
 					className="w-full object-cover"
 					priority
 				/>
