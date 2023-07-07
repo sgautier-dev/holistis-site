@@ -1,18 +1,18 @@
-import Articles from "@/app/components/Articles";
 import Image from "next/image";
-import { getAllOverview } from "@/sanity/lib/getAllOverview";
+import Contents from "../components/Contents";
+import { getResources } from "@/sanity/lib/getResources";
 import { notFound } from "next/navigation";
 
 export const metadata = {
-	title: "Overview",
+	title: "Ressources",
 };
 
 export const revalidate = 60; //to get freshest data from sanity
 
-export default async function Overview() {
-	const articles: Overview[] = await getAllOverview();
+export default async function Resources() {
+	const contents: Resource[] = await getResources();
 
-	if (!articles.length) {
+	if (!contents.length) {
 		notFound();
 	}
 
@@ -20,16 +20,16 @@ export default async function Overview() {
 		<main className="px-6 lg:px-8 py-20 sm:py-24 mx-auto max-w-7xl min-h-screen">
 			<div className="mx-auto max-w-md text-center">
 				<Image
-					src="/images/Website_Overview_bandeau-3300X1018.jpg"
+					src="/images/Website_Ressources_bandeau-330X1022.jpg"
 					width={400}
 					height={133}
-					alt="Overview Holistis"
+					alt="SameSame Holistis"
 					className="w-full object-cover"
 					priority
 				/>
 			</div>
-			<figure id="targetElement" className="border-l border-orange pl-8 mt-8">
-				<blockquote className="sm:text-lg font-semibold text-white">
+			{/* <figure className="border-l border-orange pl-8 mt-8">
+				<blockquote className="text-lg font-semibold text-white">
 					<p>
 						L&apos;overview effect est le &apos;choc&apos; cognitif, la prise de
 						conscience, l&apos;effet ressenti par les astronautes la première
@@ -40,9 +40,9 @@ export default async function Overview() {
 						perception change, et où l’après ne sera plus comme avant.
 					</p>
 				</blockquote>
-			</figure>
+			</figure> */}
 
-			<Articles articles={articles} />
+			<Contents contents={contents} />
 		</main>
 	);
 }
