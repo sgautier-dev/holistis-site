@@ -68,7 +68,7 @@ export default function Header() {
 						leaveFrom="translate-y-0 opacity-100 scale-100"
 						leaveTo="-translate-y-full opacity-0 scale-95"
 					>
-						<Disclosure.Panel className="bg-blue text-center absolute w-full">
+						<Disclosure.Panel className="bg-blue text-center absolute w-full z-40">
 							<div className="space-y-1 px-2 pb-3 pt-2">
 								{navigation.menu.map((item) => (
 									<Disclosure.Button
