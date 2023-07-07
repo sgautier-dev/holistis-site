@@ -5,7 +5,7 @@ export function getEmbeddedYouTubeUrl(videoUrl: string): string | null {
 
 	if (match) {
 		const videoId = match[1];
-		return `https://www.youtube-nocookie.com/embed/${videoId}?controls=0&modestbranding=1`;
+		return `https://www.youtube-nocookie.com/embed/${videoId}?controls=1&modestbranding=1`;
 	}
 
 	return null;
