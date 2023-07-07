@@ -25,6 +25,7 @@ export default async function Overview() {
 					height={133}
 					alt="Overview Holistis"
 					className="w-full object-cover"
+					priority
 				/>
 			</div>
 			<figure className="border-l border-orange pl-8 mt-8">
