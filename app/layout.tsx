@@ -68,8 +68,9 @@ const bariol = localFont({
 });
 
 export const metadata = {
-	title: "Holistis website",
-	description: "la plateforme web d'Holistis",
+	title: "Holistis - Voyage introspectif pour une nouvelle perspective",
+	description:
+		"Découvrez Holistis, votre point de départ vers une perception renouvelée. Naviguez à travers des articles introspectifs, des confrontations de pensées et des ressources éclairantes. Chaque visite est une opportunité d'expérimenter votre propre 'Overview Effect'.",
 	authors: [{ name: "Sébastien Gautier", url: "https://www.sgautier.dev" }],
 };
 

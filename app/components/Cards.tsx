@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import { urlForImage } from "@/sanity/lib/image";
 import { formatDate } from "@/sanity/lib/utils";
 import { PortableText } from "@portabletext/react";
