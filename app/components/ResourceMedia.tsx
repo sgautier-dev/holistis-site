@@ -3,7 +3,7 @@ import Image from "next/image";
 
 type ResourceMediaProps = {
 	mediaType: Resource["mediaType"];
-	media: Resource["media"];
+	media: MediaContent;
 	alt: Resource["alt"];
 };
 
@@ -12,52 +12,80 @@ export default function ResourceMedia({
 	media,
 	alt,
 }: ResourceMediaProps) {
-	if (mediaType === "video") {
-		// Construct the embedded YouTube URL
-		const embeddedUrl = getEmbeddedYouTubeUrl(media);
+	switch (mediaType) {
+		case "video":
+			if (media.mediaUrl) {
+				// Construct the embedded YouTube URL
+				const embeddedUrl = getEmbeddedYouTubeUrl(media.mediaUrl);
 
-		if (embeddedUrl) {
+				if (embeddedUrl) {
+					return (
+						<iframe
+							src={embeddedUrl}
+							title="YouTube video player"
+							allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+							allowFullScreen
+							className="w-full aspect-video rounded-xl border border-orange"
+						></iframe>
+					);
+				} else {
+					return (
+						<video
+							controls
+							className="w-full aspect-video rounded-xl border border-orange"
+						>
+							<source src={media.mediaUrl} />
+							Votre navigateur ne prend pas en charge le lecteur vidéo.
+						</video>
+					);
+				}
+			}
+			break;
+		case "image":
+			if (media.mediaUrl) {
+				return (
+					<Image
+						src={media.mediaUrl}
+						width={200}
+						height={100}
+						alt={alt}
+						className="object-cover"
+					/>
+				);
+			}
+			break;
+		case "web":
 			return (
-				<iframe
-					src={embeddedUrl}
-					title="YouTube video player"
-					allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-					allowFullScreen
-					className="w-full aspect-video rounded-xl border border-orange"
-				></iframe>
+				<div className="inline-block">
+					<a href={media.mediaUrl} target="_blank" rel="noopener noreferrer">
+						<p className="underline text-orange/80 hover:text-orange/40">
+							{alt}
+						</p>
+					</a>
+				</div>
 			);
-		} else {
+		case "doc":
 			return (
-				<video
-					controls
-					className="w-full aspect-video rounded-xl border border-orange"
-				>
-					<source src={media} />
-					Votre navigateur ne prend pas en charge le lecteur vidéo.
-				</video>
+				<div className="inline-block">
+					<a href={media.mediaUrl} target="_blank" rel="noopener noreferrer">
+						<p className="underline text-orange/80 hover:text-orange/40">
+							{alt || "Open Document"}
+						</p>
+					</a>
+				</div>
 			);
-		}
-	} else if (mediaType === "image") {
-		return (
-			<Image
-				src={media}
-				width={800}
-				height={300}
-				alt={alt}
-				className="w-full object-cover"
-			/>
-		);
-	} else if (mediaType === "web") {
-		return (
-			<div className="inline-block">
-				<a href={media} target="_blank" rel="noopener noreferrer">
-					<p className="underline text-orange/80 hover:text-orange/40">{alt}</p>
-				</a>
-			</div>
-		);
-	} else if (mediaType === "doc") {
-		//handle doc type
-	} else {
-		return null; // Handle unsupported media types or show a placeholder
+		case "audio":
+			return (
+				<audio controls className="w-full rounded-xl border border-orange">
+					<source src={media.mediaUrl} type="audio/mpeg" />
+					Votre navigateur ne prend pas en charge le lecteur audio.
+				</audio>
+			);
+		default:
+			return (
+				<div className="inline-block border border-orange p-4 rounded-md text-center">
+					<p className="text-orange/80">Type de média non pris en charge.</p>
+				</div>
+			); // Handling unsupported media types
 	}
 }

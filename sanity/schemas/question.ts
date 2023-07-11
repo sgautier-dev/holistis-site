@@ -12,17 +12,8 @@ export default defineType({
 			validation: (Rule) => Rule.required(),
 		}),
 		defineField({
-			name: "slug",
-			title: "Slug",
-			type: "slug",
-			options: {
-				source: "title",
-				maxLength: 96,
-			},
-		}),
-		defineField({
 			name: "categories",
-			title: "Categories",
+			title: "Catégories  de la question",
 			type: "array",
 			of: [{ type: "reference", to: { type: "category" } }],
 			validation: (Rule) => Rule.required(),

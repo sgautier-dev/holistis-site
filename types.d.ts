@@ -65,19 +65,33 @@ interface Category extends Base {
 	description: string;
 }
 
+interface MediaContent {
+	webUrl?: string;
+	videoUrl?: string;
+	imageUrl?: string;
+	docFile?: string;
+	audioFile?: string;
+	mediaUrl?: string;
+}
+
+interface PictoImage extends Base {
+	_type: "pictoImage";
+	image: Image;
+	alt: string;
+}
+
 interface Resource extends Base {
 	_type: "resource";
 	title: string;
 	slug: Slug;
-	picto: Image;
+	picto: PictoImage;
 	duration: string;
 	body: BlockContent[];
-	mediaType: 'web' | 'video' | 'image';
-	media: string;
+	mediaType: "web" | "video" | "image" | "doc" | "audio";
+	media: MediaContent;
 	alt: string;
 	categories: Category[];
 }
-
 
 interface Question extends Base {
 	_type: "question";
@@ -92,16 +106,34 @@ interface Overview extends Base {
 	title: string;
 	slug: Slug;
 	mainImage: Image;
-	editoText: BlockContent[]; // replace by any if needed
-	proposition180: {
-		pictoImage: Image;
-		question: Question;
-	};
-	contents: Resource[];
+	editoText: BlockContent[];
+	sections: Section[];
 	questions: {
 		image: Image;
 		questions: Question[];
 	};
 	categories: Category[];
 	publishedAt: string;
+}
+
+interface Section {
+	proposition180: {
+		pictoImage: Image;
+		question: Question;
+	};
+	subsections: Subsection[];
+}
+
+interface Subsection {
+	title: string;
+	contents: Resource[];
+}
+
+interface SameSame extends Base {
+	_type: "samesame";
+	title: string;
+	image: Image;
+	text: BlockContent[];
+	publishedAt: string;
+	categories: Category[];
 }

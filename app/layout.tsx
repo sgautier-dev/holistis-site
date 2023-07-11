@@ -1,7 +1,7 @@
 import "./globals.css";
-import Header from "../components/Header";
+import Header from "./components/Header";
 import localFont from "next/font/local";
-import Footer from "../components/Footer";
+import Footer from "./components/Footer";
 
 const gotham = localFont({
 	src: [
@@ -68,8 +68,9 @@ const bariol = localFont({
 });
 
 export const metadata = {
-	title: "Holistis website",
-	description: "la plateforme web d'Holistis",
+	title: "Holistis - Voyage introspectif pour une nouvelle perspective",
+	description:
+		"Découvrez Holistis, votre point de départ vers une perception renouvelée. Naviguez à travers des articles introspectifs, des confrontations de pensées et des ressources éclairantes. Chaque visite est une opportunité d'expérimenter votre propre 'Overview Effect'.",
 	authors: [{ name: "Sébastien Gautier", url: "https://www.sgautier.dev" }],
 };
 
@@ -81,9 +82,9 @@ export default function RootLayout({
 	return (
 		<html
 			lang="fr"
-			className={`${gotham.variable} ${bariol.variable} sm:scroll-smooth h-full`}
+			className={`${gotham.variable} ${bariol.variable} sm:scroll-smooth`}
 		>
-			<body className=" bg-purple font-bariol h-full">
+			<body className=" bg-purple font-bariol">
 				<Header />
 				{children}
 				<Footer />
