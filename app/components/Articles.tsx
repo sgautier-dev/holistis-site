@@ -3,36 +3,22 @@ import Image from "next/image";
 import { urlForImage } from "@/sanity/lib/image";
 import { formatDate } from "@/sanity/lib/utils";
 import Link from "next/link";
-import { useState, useMemo } from "react";
 import CategoryFilter from "./CategoryFilter";
+import useCategoryFilter from "@/lib/hooks/useCategoryFilter";
 
 type ArticlesProps = {
 	articles: Overview[];
 };
 
 export default function Articles({ articles }: ArticlesProps) {
-	const [selectedCategory, setSelectedCategory] = useState("Tout");
+	const {
+		selectedCategory,
+		setSelectedCategory,
+		uniqueCategories,
+		filteredItems: uncastFilteredItems,
+	} = useCategoryFilter(articles);
 
-	// Retrieve unique categories from the articles
-	const uniqueCategories = Array.from(
-		new Set(
-			articles.flatMap((article) =>
-				article.categories.map((category) => category.title)
-			)
-		)
-	);
-
-	const filteredArticles = useMemo(
-		() =>
-			selectedCategory === "Tout"
-				? articles
-				: articles.filter((article) =>
-						article.categories
-							.map((category) => category.title)
-							.includes(selectedCategory)
-				  ),
-		[selectedCategory, articles]
-	);
+	const filteredItems = uncastFilteredItems as Overview[]; //indicating to typescript that this is an array of Overview objects
 
 	return (
 		<div className="mx-auto mt-16 max-w-7xl px-6 lg:px-8">
@@ -43,7 +29,7 @@ export default function Articles({ articles }: ArticlesProps) {
 					setSelectedCategory={setSelectedCategory}
 				/>
 				<div className="mx-auto grid max-w-2xl auto-rows-fr grid-cols-1 gap-8 mt-10 sm:mt-12 lg:mx-0 lg:max-w-none lg:grid-cols-3 mb-16 sm:mb-20">
-					{filteredArticles.map((article) => (
+					{filteredItems.map((article) => (
 						<article
 							key={article._id}
 							className="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl bg-gray-900 px-8 pb-8 pt-80 sm:pt-48 lg:pt-80 hover:scale-105 transition "
