@@ -6,7 +6,7 @@ type ItemFilterProps = {
 	uniqueItems: string[];
 	selectedItem: string;
 	setSelectedItem: (value: string) => void;
-	allLabel: string; // added this prop
+	allLabel: string;
 };
 
 function classNames(...classes: string[]) {
@@ -17,12 +17,12 @@ export default function ItemFilter({
 	uniqueItems,
 	selectedItem,
 	setSelectedItem,
-	allLabel, // destructure this prop
+	allLabel,
 }: ItemFilterProps) {
 	return (
 		<Menu as="div" className="relative inline-block text-left">
 			<div className="border-b">
-				<Menu.Button className="group inline-flex justify-center text-lg font-medium text-white hover:text-gray-500">
+				<Menu.Button className="group inline-flex justify-center text-lg font-medium text-white hover:text-gray-500 capitalize">
 					{selectedItem}
 					<ChevronDownIcon
 						className="-mr-1 ml-1 h-7 w-7 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
@@ -48,7 +48,7 @@ export default function ItemFilter({
 									onClick={() => setSelectedItem(allLabel)}
 									className={classNames(
 										active ? "bg-gray-100" : "",
-										"block px-4 py-2 text-sm font-medium text-gray-900"
+										"block px-4 py-2 text-sm font-medium text-gray-900 capitalize"
 									)}
 								>
 									{allLabel}
@@ -72,7 +72,7 @@ export default function ItemFilter({
 										}}
 										className={classNames(
 											active ? "bg-gray-100" : "",
-											"block px-4 py-2 text-sm font-medium text-gray-900"
+											"block px-4 py-2 text-sm font-medium text-gray-900 capitalize"
 										)}
 									>
 										{item}
