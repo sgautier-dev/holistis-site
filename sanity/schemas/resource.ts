@@ -5,17 +5,36 @@ export default defineType({
 	title: "Ressources",
 	type: "document",
 	fields: [
-		{
+		defineField({
 			name: "title",
 			title: "Titre",
 			type: "string",
 			validation: (Rule) => Rule.required(),
-		},
+		}),
+		defineField({
+			name: "slug",
+			title: "Slug",
+			type: "slug",
+			options: {
+				source: "title",
+				maxLength: 96,
+			},
+			validation: (Rule) => Rule.required(),
+		}),
 		{
 			name: "picto",
-			title: "Picto Image",
-			type: "reference",
-			to: [{ type: "pictoImage" }],
+			title: "Picto",
+			type: "image",
+			options: {
+				hotspot: true,
+			},
+			fields: [
+				{
+					name: "alt",
+					type: "string",
+					title: "Alternative Text",
+				},
+			],
 			validation: (Rule) => Rule.required(),
 		},
 		defineField({
@@ -39,63 +58,27 @@ export default defineType({
 					{ title: "Vidéo", value: "video" },
 					{ title: "Image", value: "image" },
 					{ title: "Doc", value: "doc" },
-					{ title: "Audio", value: "audio" },
 					// Add more options as needed...
 				],
 				layout: "radio", // or 'dropdown'
 			},
 			validation: (Rule) => Rule.required(),
 		},
-		{
+		defineField({
 			name: "media",
-			title: "Contenu du média",
-			type: "object",
-			fields: [
-				{
-					name: "webUrl",
-					title: "Adresse URL",
-					type: "url",
-					hidden: ({ document }) => document?.mediaType !== "web",
-				},
-				{
-					name: "videoUrl",
-					title: "URL de la vidéo",
-					type: "url",
-					hidden: ({ document }) => document?.mediaType !== "video",
-				},
-				{
-					name: "imageUrl",
-					title: "Image",
-					type: "image",
-					options: {
-						hotspot: true, // Enable hotspot selection for this field
-					},
-					hidden: ({ document }) => document?.mediaType !== "image",
-				},
-				{
-					name: "docFile",
-					title: "Document",
-					type: "file",
-					hidden: ({ document }) => document?.mediaType !== "doc",
-				},
-				{
-					name: "audioFile",
-					title: "Fichier audio",
-					type: "file",
-					hidden: ({ document }) => document?.mediaType !== "audio",
-				},
-			],
-		},
-		{
-			name: "alt",
-			title: "Texte alternatif",
-			description: "Décrivez le contenu du média. Ou indiquez ce qui sera affiché s'il s'agit d'un lien web",
-			type: "string",
+			title: "URL du Media",
+			type: "url",
 			validation: (Rule) => Rule.required(),
-		},
+		}),
+		defineField({
+			name: "alt",
+			type: "string",
+			title: "Alternative Text du Media",
+			validation: (Rule) => Rule.required(),
+		}),
 		defineField({
 			name: "categories",
-			title: "Catégories  de la ressource",
+			title: "Categories",
 			type: "array",
 			of: [{ type: "reference", to: { type: "category" } }],
 			validation: (Rule) => Rule.required(),
@@ -105,7 +88,7 @@ export default defineType({
 	preview: {
 		select: {
 			title: "title",
-			media: "picto.image",
+			media: "picto",
 		},
 	},
 });

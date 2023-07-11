@@ -19,7 +19,7 @@ export default defineType({
 		}),
 		defineField({
 			name: "categories",
-			title: "Catégories  de la citation",
+			title: "Categories",
 			type: "array",
 			of: [{ type: "reference", to: { type: "category" } }],
 			validation: (Rule) => Rule.required(),

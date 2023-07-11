@@ -1,10 +1,9 @@
 import Image from "next/image";
+import { getRandomQuote } from "@/sanity/lib/getRandomQuote";
 
-type QuoteProps = {
-	quote: BasicQuote;
-};
+export default async function Quote() {
+    const quote = await getRandomQuote();
 
-export default async function Quote({ quote }: QuoteProps) {
 	return (
 		<section className="isolate overflow-hidden bg-blue rounded-2xl my-16 sm:my-20 px-6 lg:px-8">
 			<div className="relative mx-auto max-w-2xl py-20 lg:py-6 lg:max-w-4xl">
@@ -23,9 +22,11 @@ export default async function Quote({ quote }: QuoteProps) {
 							<use href="#b56e9dab-6ccb-4d32-ad02-6b4bb5d9bbeb" x={86} />
 						</svg>
 						<blockquote className="text-xl font-semibold leading-8 text-white sm:text-2xl sm:leading-9">
-							<p>{quote.quoteText}</p>
+							<p>
+                            {quote.quoteText}
+							</p>
 						</blockquote>
-						<svg
+                        <svg
 							viewBox="0 0 162 128"
 							fill="none"
 							aria-hidden="true"

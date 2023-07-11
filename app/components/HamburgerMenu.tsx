@@ -1,4 +1,5 @@
 "use client";
+import { Fragment } from "react";
 import { Disclosure, Transition } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
@@ -35,7 +36,7 @@ export default function HamburgerMenu() {
 							)}
 						</Disclosure.Button>
 					</div>
-
+					
 					<Disclosure.Panel className="">
 						<div className="space-y-1 px-2 pb-3 pt-2">
 							{navigation.map((item) => (
