@@ -41,16 +41,16 @@ export default function CategoryFilter({
 			>
 				<Menu.Items className="absolute left-0 z-10 mt-2 w-40 origin-top-left rounded-md bg-white shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none">
 					<div className="py-1">
-						<Menu.Item key="Tout">
+						<Menu.Item key="Toutes catégories">
 							{({ active }) => (
 								<button
-									onClick={() => setSelectedCategory("Tout")}
+									onClick={() => setSelectedCategory("Toutes catégories")}
 									className={classNames(
 										active ? "bg-gray-100" : "",
 										"block px-4 py-2 text-sm font-medium text-gray-900"
 									)}
 								>
-									Tout
+									Toutes catégories
 								</button>
 							)}
 						</Menu.Item>
