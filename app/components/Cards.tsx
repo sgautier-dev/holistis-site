@@ -5,6 +5,7 @@ import { formatDate } from "@/sanity/lib/utils";
 import { PortableText } from "@portabletext/react";
 import useItemFilter from "@/lib/hooks/useItemFilter";
 import ItemFilter from "./ItemFilter";
+import { ALL_CATEGORIES_LABEL } from "@/lib/constants";
 
 type SameSameProps = {
 	cards: SameSame[];
@@ -15,11 +16,11 @@ export default function Cards({ cards }: SameSameProps) {
 		selectedItem: selectedCategory,
 		setSelectedItem: setSelectedCategory,
 		uniqueItems: uniqueCategories,
-		filteredItems,
+		filteredItems: filteredByCategories,
 	} = useItemFilter<SameSame>({
 		items: cards,
 		getItemTypes: (card) => card.categories.map((category) => category.title),
-		allLabel: "Toutes catégories",
+		allLabel: ALL_CATEGORIES_LABEL,
 	});
 
 	return (
@@ -28,9 +29,10 @@ export default function Cards({ cards }: SameSameProps) {
 					uniqueItems={uniqueCategories}
 					selectedItem={selectedCategory}
 					setSelectedItem={setSelectedCategory}
+					allLabel={ALL_CATEGORIES_LABEL}
 				/>
 			<div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none sm:grid-cols-2 xl:grid-cols-3">
-				{filteredItems.map((card) => (
+				{filteredByCategories.map((card) => (
 					<article
 						key={card._id}
 						className="flex flex-col items-start justify-between"

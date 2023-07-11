@@ -2,11 +2,11 @@ import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 
-
 type ItemFilterProps = {
 	uniqueItems: string[];
 	selectedItem: string;
 	setSelectedItem: (value: string) => void;
+	allLabel: string; // added this prop
 };
 
 function classNames(...classes: string[]) {
@@ -17,6 +17,7 @@ export default function ItemFilter({
 	uniqueItems,
 	selectedItem,
 	setSelectedItem,
+	allLabel, // destructure this prop
 }: ItemFilterProps) {
 	return (
 		<Menu as="div" className="relative inline-block text-left">
@@ -41,16 +42,16 @@ export default function ItemFilter({
 			>
 				<Menu.Items className="absolute left-0 z-10 mt-2 w-40 origin-top-left rounded-md bg-white shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none">
 					<div className="py-1">
-						<Menu.Item key="Toutes catégories">
+						<Menu.Item key={allLabel}>
 							{({ active }) => (
 								<button
-									onClick={() => setSelectedItem("Toutes catégories")}
+									onClick={() => setSelectedItem(allLabel)}
 									className={classNames(
 										active ? "bg-gray-100" : "",
 										"block px-4 py-2 text-sm font-medium text-gray-900"
 									)}
 								>
-									Toutes catégories
+									{allLabel}
 								</button>
 							)}
 						</Menu.Item>
