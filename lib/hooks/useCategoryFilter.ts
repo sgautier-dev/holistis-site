@@ -10,7 +10,7 @@ export function useCategoryFilter(
   setSelectedCategory: React.Dispatch<React.SetStateAction<string>>;
   filteredItems: CategoryItem[];
 } {
-	const [selectedCategory, setSelectedCategory] = useState<string>("Tout");
+	const [selectedCategory, setSelectedCategory] = useState<string>("Toutes catégories");
 
 	const uniqueCategories = useMemo(
 		() =>
@@ -26,7 +26,7 @@ export function useCategoryFilter(
 
 	const filteredItems = useMemo(
 		() =>
-			selectedCategory === "Tout"
+			selectedCategory === "Toutes catégories"
 				? items
 				: items.filter((item) =>
 						item.categories
