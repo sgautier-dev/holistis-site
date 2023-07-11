@@ -1,6 +1,6 @@
 "use client";
 import ResourceMedia from "./ResourceMedia";
-import CategoryFilter from "./CategoryFilter";
+import ItemFilter from "./ItemFilter";
 import useCategoryFilter from "@/lib/hooks/useCategoryFilter";
 
 type ContentsProps = {
@@ -19,10 +19,10 @@ export default function Contents({ contents }: ContentsProps) {
 
 	return (
 		<div className="mx-auto mt-16 max-w-7xl px-6 lg:px-8">
-			<CategoryFilter
-				uniqueCategories={uniqueCategories}
-				selectedCategory={selectedCategory}
-				setSelectedCategory={setSelectedCategory}
+			<ItemFilter
+				uniqueItems={uniqueCategories}
+				selectedItem={selectedCategory}
+				setSelectedItem={setSelectedCategory}
 			/>
 			<ul className="mx-auto mt-20 grid place-items-center max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3">
 				{filteredItems.map((content) => (

@@ -3,7 +3,7 @@ import Image from "next/image";
 import { urlForImage } from "@/sanity/lib/image";
 import { formatDate } from "@/sanity/lib/utils";
 import Link from "next/link";
-import CategoryFilter from "./CategoryFilter";
+import ItemFilter from "./ItemFilter";
 import useCategoryFilter from "@/lib/hooks/useCategoryFilter";
 
 type ArticlesProps = {
@@ -23,10 +23,10 @@ export default function Articles({ articles }: ArticlesProps) {
 	return (
 		<div className="mx-auto mt-16 max-w-7xl px-6 lg:px-8">
 			<div className="mx-auto max-w-2xl lg:max-w-none">
-				<CategoryFilter
-					uniqueCategories={uniqueCategories}
-					selectedCategory={selectedCategory}
-					setSelectedCategory={setSelectedCategory}
+				<ItemFilter
+					uniqueItems={uniqueCategories}
+					selectedItem={selectedCategory}
+					setSelectedItem={setSelectedCategory}
 				/>
 				<div className="mx-auto grid max-w-2xl auto-rows-fr grid-cols-1 gap-8 mt-10 sm:mt-12 lg:mx-0 lg:max-w-none lg:grid-cols-3 mb-16 sm:mb-20">
 					{filteredItems.map((article) => (
