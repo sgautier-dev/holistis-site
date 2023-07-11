@@ -1,17 +1,36 @@
+"use client";
 import Image from "next/image";
 import { urlForImage } from "@/sanity/lib/image";
 import { formatDate } from "@/sanity/lib/utils";
 import { PortableText } from "@portabletext/react";
+import useItemFilter from "@/lib/hooks/useItemFilter";
+import ItemFilter from "./ItemFilter";
 
 type SameSameProps = {
 	cards: SameSame[];
 };
 
 export default function Cards({ cards }: SameSameProps) {
+	const {
+		selectedItem: selectedCategory,
+		setSelectedItem: setSelectedCategory,
+		uniqueItems: uniqueCategories,
+		filteredItems,
+	} = useItemFilter<SameSame>({
+		items: cards,
+		getItemTypes: (card) => card.categories.map((category) => category.title),
+		allLabel: "Toutes catégories",
+	});
+
 	return (
 		<div className="mx-auto mt-16 max-w-7xl px-6 lg:px-8">
+			<ItemFilter
+					uniqueItems={uniqueCategories}
+					selectedItem={selectedCategory}
+					setSelectedItem={setSelectedCategory}
+				/>
 			<div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none sm:grid-cols-2 xl:grid-cols-3">
-				{cards.map((card) => (
+				{filteredItems.map((card) => (
 					<article
 						key={card._id}
 						className="flex flex-col items-start justify-between"
