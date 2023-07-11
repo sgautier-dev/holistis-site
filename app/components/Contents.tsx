@@ -1,15 +1,31 @@
-import Image from "next/image";
+"use client";
 import ResourceMedia from "./ResourceMedia";
+import CategoryFilter from "./CategoryFilter";
+import useCategoryFilter from "@/lib/hooks/useCategoryFilter";
 
 type ContentsProps = {
 	contents: Resource[];
 };
 
 export default function Contents({ contents }: ContentsProps) {
+	const {
+		selectedCategory,
+		setSelectedCategory,
+		uniqueCategories,
+		filteredItems: uncastFilteredItems,
+	} = useCategoryFilter(contents);
+
+	const filteredItems = uncastFilteredItems as Resource[]; //indicating to typescript that this is an array of Resource objects
+
 	return (
 		<div className="mx-auto mt-16 max-w-7xl px-6 lg:px-8">
+			<CategoryFilter
+				uniqueCategories={uniqueCategories}
+				selectedCategory={selectedCategory}
+				setSelectedCategory={setSelectedCategory}
+			/>
 			<ul className="mx-auto mt-20 grid place-items-center max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-				{contents.map((content) => (
+				{filteredItems.map((content) => (
 					<li key={content._id}>
 						<ResourceMedia
 							mediaType={content.mediaType}

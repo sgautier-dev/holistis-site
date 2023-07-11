@@ -61,13 +61,13 @@ export default function CategoryFilter({
 									<button
 										onClick={() => {
 											setSelectedCategory(category);
-											// Find the target element and scroll to it
-											const targetElement =
-												document.getElementById("targetElement");
-											targetElement?.scrollIntoView({
-												behavior: "smooth",
-												block: "start",
-											});
+											// // Find the target element and scroll to it
+											// const targetElement =
+											// 	document.getElementById("targetElement");
+											// targetElement?.scrollIntoView({
+											// 	behavior: "smooth",
+											// 	block: "start",
+											// });
 										}}
 										className={classNames(
 											active ? "bg-gray-100" : "",
