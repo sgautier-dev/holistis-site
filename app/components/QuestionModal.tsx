@@ -3,11 +3,16 @@ import { Dialog, Transition } from "@headlessui/react";
 import { QuestionMarkCircleIcon, XMarkIcon } from "@heroicons/react/24/outline";
 
 type QuestionModalProps = {
+	question: BasicQuestion;
 	open: boolean;
 	setOpen: (open: boolean) => void;
 };
 
-export default function QuestionModal({ open, setOpen }: QuestionModalProps) {
+export default async function QuestionModal({
+	question,
+	open,
+	setOpen,
+}: QuestionModalProps) {
 	return (
 		<Transition.Root show={open} as={Fragment}>
 			<Dialog as="div" className="relative z-10" onClose={setOpen}>
@@ -55,8 +60,7 @@ export default function QuestionModal({ open, setOpen }: QuestionModalProps) {
 									<div className="mt-3 text-center sm:mt-5">
 										<div className="mt-2">
 											<p className="text-xl text-white uppercase">
-												ET SI LE TEMPS LONG ÉTAIT TOUT aussi IMPORTANT QUE LE
-												TEMPS COURT ?
+												{question.questionText}
 											</p>
 										</div>
 									</div>
