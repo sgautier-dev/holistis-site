@@ -93,6 +93,10 @@ interface Resource extends Base {
 	categories: Category[];
 }
 
+interface BasicQuestion {
+	questionText: string;
+}
+
 interface Question extends Base {
 	_type: "question";
 	questionText: string;
