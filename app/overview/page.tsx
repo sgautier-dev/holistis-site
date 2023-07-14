@@ -2,6 +2,7 @@ import Articles from "@/app/components/Articles";
 import Image from "next/image";
 import { getAllOverview } from "@/sanity/lib/getAllOverview";
 import { notFound } from "next/navigation";
+import QuestionButton from "../components/QuestionButton";
 
 export const metadata = {
 	title: "Overview",
@@ -41,7 +42,7 @@ export default async function Overview() {
 					</p>
 				</blockquote>
 			</figure>
-
+			<QuestionButton />
 			<Articles articles={articles} />
 		</main>
 	);
