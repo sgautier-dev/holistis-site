@@ -9,6 +9,7 @@ export default defineType({
 			name: "title",
 			title: "Titre",
 			type: "string",
+			validation: (Rule) => Rule.required(),
 		},
 		{
 			name: "picto",
@@ -88,8 +89,7 @@ export default defineType({
 		{
 			name: "alt",
 			title: "Texte alternatif",
-			description:
-				"Décrivez le contenu du média. Ou indiquez ce qui sera affiché s'il s'agit d'un lien web",
+			description: "Décrivez le contenu du média. Ou indiquez ce qui sera affiché s'il s'agit d'un lien web",
 			type: "string",
 			validation: (Rule) => Rule.required(),
 		},

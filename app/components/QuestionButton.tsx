@@ -25,7 +25,7 @@ export default function QuestionButton() {
 	};
 
 	return (
-		<div className="absolute right-3 sm:right-24 md:right-32 lg:right-60 xl:right-80">
+		<div className="absolute right-3 sm:right-24 md:right-32 lg:right-52 xl:right-80">
 			<button
 				className="max-w-xs ml-auto block"
 				onClick={openQuestion}
