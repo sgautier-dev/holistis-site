@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import { Fragment } from "react";
 import { Disclosure, Transition } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import QuestionButton from "./QuestionButton";
 
 function classNames(...classes: string[]) {
 	return classes.filter(Boolean).join(" ");
@@ -46,6 +47,8 @@ export default function Header() {
 									priority={true}
 								/>
 							</Link>
+
+							<QuestionButton />
 
 							{/* Menu button*/}
 							<Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-orange hover:bg-orange hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">

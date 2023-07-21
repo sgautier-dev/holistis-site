@@ -8,7 +8,7 @@ type QuestionModalProps = {
 	setOpen: (open: boolean) => void;
 };
 
-export default async function QuestionModal({
+export default function QuestionModal({
 	question,
 	open,
 	setOpen,

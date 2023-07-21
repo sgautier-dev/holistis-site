@@ -25,7 +25,7 @@ export default function QuestionButton() {
 	};
 
 	return (
-		<div>
+		<div className="absolute right-3 sm:right-24 md:right-32 lg:right-60 xl:right-80">
 			<button
 				className="max-w-xs ml-auto block"
 				onClick={openQuestion}
@@ -33,8 +33,8 @@ export default function QuestionButton() {
 			>
 				<Image
 					src="/images/question-1969017_1280.png"
-					width={50}
-					height={100}
+					width={30}
+					height={50}
 					alt="Questions Holistis"
 					className="object-cover ml-auto"
 					priority
