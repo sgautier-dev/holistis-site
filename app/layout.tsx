@@ -74,6 +74,8 @@ export const metadata = {
 	authors: [{ name: "Sébastien Gautier", url: "https://www.sgautier.dev" }],
 };
 
+export const revalidate = 60; //to get freshest data from sanity
+
 export default function RootLayout({
 	children,
 }: {

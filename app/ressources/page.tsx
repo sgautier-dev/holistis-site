@@ -7,8 +7,6 @@ export const metadata = {
 	title: "Ressources",
 };
 
-export const revalidate = 60; //to get freshest data from sanity
-
 export default async function Resources() {
 	const contents: Resource[] = await getResources();
 

@@ -7,8 +7,6 @@ export const metadata = {
 	title: "Same Same",
 };
 
-export const revalidate = 60; //to get freshest data from sanity
-
 export default async function SameSame() {
 	const cards: SameSame[] = await getSameSame();
 
