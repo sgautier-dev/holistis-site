@@ -63,7 +63,7 @@ export default function Articles({ articles }: ArticlesProps) {
 								
 							</div> */}
 							</div>
-							<h3 className="mt-3 text-lg font-semibold leading-6 text-orange">
+							<h3 className="mt-3 text-lg uppercase font-semibold leading-6 text-orange">
 								<Link href={`/overview/${article.slug.current}`}>
 									<span className="absolute inset-0 " />
 									{article.title}
