@@ -48,7 +48,7 @@ export default function ItemFilter({
 									onClick={() => setSelectedItem(allLabel)}
 									className={classNames(
 										active ? "bg-gray-100" : "",
-										"block px-4 py-2 text-sm font-medium text-gray-900 capitalize"
+										"w-full text-left block px-4 py-2 text-sm font-medium text-gray-900 capitalize"
 									)}
 								>
 									{allLabel}
@@ -72,7 +72,7 @@ export default function ItemFilter({
 										}}
 										className={classNames(
 											active ? "bg-gray-100" : "",
-											"block px-4 py-2 text-sm font-medium text-gray-900 capitalize"
+											"w-full text-left block px-4 py-2 text-sm font-medium text-gray-900 capitalize"
 										)}
 									>
 										{item}
