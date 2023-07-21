@@ -115,7 +115,7 @@ export default defineType({
 									fields: [
 										defineField({
 											name: "title",
-											title: "Title",
+											title: "Titre",
 											type: "string",
 										}),
 										defineField({
