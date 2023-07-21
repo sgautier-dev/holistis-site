@@ -11,13 +11,10 @@ export default function QuestionButton() {
 		questionText: "En cours de chargement...",
 	});
 
-    //to prevent multiple fetches from re-rendering
 	const openQuestion = async () => {
-		setIsLoading(true);
+		setIsQuestionOpen(true); // Immediately open the modal with the loading message
 		const newQuestion = await getRandomQuestion();
-		setQuestion(newQuestion);
-		setIsLoading(false);
-		setIsQuestionOpen(true);
+		setQuestion(newQuestion); // Then update the question once the fetch is done
 	};
 
 	const closeQuestion = () => {

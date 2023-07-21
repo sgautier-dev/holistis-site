@@ -9,6 +9,15 @@ type ContentsProps = {
 };
 
 export default function Contents({ contents }: ContentsProps) {
+	const mediaTypeTitles = {
+		web: "Web",
+		video: "Vidéos",
+		image: "Visuels",
+		doc: "Docs",
+		audio: "Audios",
+		// Add more as needed...
+	};
+
 	const {
 		selectedItem: selectedCategory,
 		setSelectedItem: setSelectedCategory,
@@ -28,7 +37,9 @@ export default function Contents({ contents }: ContentsProps) {
 		filteredItems: filteredByMediaTypes,
 	} = useItemFilter<Resource>({
 		items: contents,
-		getItemTypes: (content) => [content.mediaType],
+		getItemTypes: (content) => [
+			mediaTypeTitles[content.mediaType] || content.mediaType,
+		],
 		allLabel: ALL_MEDIA_LABEL,
 	});
 
@@ -56,17 +67,17 @@ export default function Contents({ contents }: ContentsProps) {
 			<ul className="mx-auto mt-20 grid place-items-center max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3">
 				{finalFilteredItems.map((content) => (
 					<li key={content._id}>
-						<ResourceMedia
-							mediaType={content.mediaType}
-							media={content.media}
-							alt={content.alt}
-						/>
 						<h3 className="mt-6 text-lg font-semibold leading-8 tracking-tight text-white">
 							{content.title}
 						</h3>
 						<p className="text-base leading-7 text-white/80">
 							{content.duration}
 						</p>
+						<ResourceMedia
+							mediaType={content.mediaType}
+							media={content.media}
+							alt={content.alt}
+						/>
 					</li>
 				))}
 			</ul>
