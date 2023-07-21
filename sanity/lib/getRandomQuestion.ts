@@ -7,7 +7,8 @@ export async function getRandomQuestion(): Promise<BasicQuestion> {
 	try {
 		// To improve perf check if the questions are already fetched, if not, fetch them
 		if (!questions) {
-			const query = '*[_type == "question"] {questionText}';
+			const query =
+				'*[_type == "question"] { questionText, "category": categories[0]->title}';
 			questions = await client.fetch(query);
 		}
 
@@ -32,6 +33,7 @@ export async function getRandomQuestion(): Promise<BasicQuestion> {
 		console.error("Error fetching question:", error);
 		return {
 			//default question in case of error
+			category: "180°",
 			questionText:
 				"ET SI LE TEMPS LONG ÉTAIT TOUT aussi IMPORTANT QUE LE TEMPS COURT ?",
 		};

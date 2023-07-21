@@ -8,6 +8,7 @@ export default function QuestionButton() {
 	const [isLoading, setIsLoading] = useState(false);
 	const [isQuestionOpen, setIsQuestionOpen] = useState(false);
 	const [question, setQuestion] = useState<BasicQuestion>({
+		category: "Attente",
 		questionText: "En cours de chargement...",
 	});
 

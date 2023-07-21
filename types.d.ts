@@ -95,6 +95,7 @@ interface Resource extends Base {
 
 interface BasicQuestion {
 	questionText: string;
+	category: string;
 }
 
 interface Question extends Base {
