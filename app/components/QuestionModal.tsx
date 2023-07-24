@@ -52,7 +52,7 @@ export default function QuestionModal({
 									</button>
 								</div>
 								<div>
-								<p className="text-white absolute left-0 top-0 pl-4 pt-4 block">{question.category}</p>
+								<p className="text-orange absolute left-0 top-0 pl-4 pt-4 block">{question.category}</p>
 									<div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-white">
 										<QuestionMarkCircleIcon
 											className="h-10 w-10 text-orange"

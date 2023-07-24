@@ -1,9 +1,7 @@
-import Link from "next/link";
 import Image from "next/image";
 import { BsLinkedin, BsArrowUpSquare } from "react-icons/bs";
 import { navigation } from "@/lib/navigation";
 import NewsletterForm from "./NewsletterForm";
-import Legal from "../mentions/page";
 
 export default function Footer() {
 	const today = new Date();
