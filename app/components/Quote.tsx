@@ -38,10 +38,10 @@ export default async function Quote({ quote }: QuoteProps) {
 							<use href="#b56e9dab-6ccb-4d32-ad02-6b4bb5d9bbeb" x={86} />
 						</svg>
 					</div>
-					<div className="col-end-1 w-16 lg:row-span-4 lg:w-72">
+					<div className="col-end-1 w-32 lg:row-span-4 lg:w-72">
 						<Image
 							className="rounded-xl lg:rounded-3xl"
-							src="/images/gadiel-lazcano-5udmhGcRWV0-unsplash-1920X1280.jpg"
+							src="/images/fantasy-2760153_1920.jpg"
 							alt="wisdom"
 							width={200}
 							height={100}
