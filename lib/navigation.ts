@@ -8,5 +8,6 @@ export const navigation = {
 	],
 	legal: [
 		{ name: "Confidentialité", href: "/privacy" },
+		{ name: "Mentions légales", href: "/mentions" },
 	],
   }

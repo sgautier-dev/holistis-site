@@ -5,7 +5,7 @@ let questions: BasicQuestion[] | null = null;
 
 export async function getRandomQuestion(): Promise<BasicQuestion> {
 	try {
-		// To improve perf check if the questions are already fetched, if not, fetch them
+		// To improve perf, check if the questions are already fetched, if not, fetch them
 		if (!questions) {
 			const query =
 				'*[_type == "question"] { questionText, "category": categories[0]->title}';
