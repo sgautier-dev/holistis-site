@@ -89,7 +89,7 @@ export default function NewsletterForm() {
 	};
 
 	return (
-		<div className="mt-10 xl:mt-0 ">
+		<div className="mt-10 xl:mt-0" id="newsletter">
 			<div className="flex items-center gap-4">
 				<BellAlertIcon
 					className="h-6 w-6 text-orange animate-pulse"
