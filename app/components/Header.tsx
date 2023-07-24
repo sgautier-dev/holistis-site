@@ -52,10 +52,6 @@ export default function Header() {
 								/>
 							</Link>
 
-							<div className="absolute right-3 sm:right-24 md:right-32 lg:right-52 xl:right-80">
-								{/* <QuestionButton /> */}
-							</div>
-
 							{/* Menu button*/}
 							<div className="flex flex-col items-center gap-8 sm:flex-row">
 								<div className="flex items-center gap-8 order-2 sm:-order-none ">
