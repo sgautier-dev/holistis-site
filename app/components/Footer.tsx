@@ -3,6 +3,7 @@ import { BsLinkedin, BsArrowUpSquare } from "react-icons/bs";
 import { navigation } from "@/lib/navigation";
 import NewsletterForm from "./NewsletterForm";
 
+
 export default function Footer() {
 	const today = new Date();
 	const year = today.getFullYear().toString();

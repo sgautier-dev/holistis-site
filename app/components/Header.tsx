@@ -6,7 +6,11 @@ import { usePathname } from "next/navigation";
 
 import { Fragment } from "react";
 import { Disclosure, Transition } from "@headlessui/react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import {
+	Bars3Icon,
+	XMarkIcon,
+	BellAlertIcon,
+} from "@heroicons/react/24/outline";
 import QuestionButton from "./QuestionButton";
 
 function classNames(...classes: string[]) {
@@ -20,8 +24,8 @@ export default function Header() {
 		<Disclosure as="nav" className="sm:sticky sm:top-0 z-40">
 			{({ open }) => (
 				<>
-					<header className="bg-blue p-6 drop-shadow-xl">
-						<div className="mx-auto relative flex items-center justify-between gap-1 flex-col sm:flex-row">
+					<header className="bg-blue p-6 drop-shadow-xl relative">
+						<div className="mx-auto relative flex items-center justify-between gap-2 flex-col sm:flex-row">
 							<Link
 								href="/"
 								className="hover:opacity-80 focus-visible:outline-orange"
@@ -48,17 +52,31 @@ export default function Header() {
 								/>
 							</Link>
 
-							<QuestionButton />
+							<div className="absolute right-3 sm:right-24 md:right-32 lg:right-52 xl:right-80">
+								{/* <QuestionButton /> */}
+							</div>
 
 							{/* Menu button*/}
-							<Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-orange hover:bg-orange hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
-								<span className="sr-only">Open main menu</span>
-								{open ? (
-									<XMarkIcon className="block h-14 w-14" aria-hidden="true" />
-								) : (
-									<Bars3Icon className="block h-14 w-14" aria-hidden="true" />
-								)}
-							</Disclosure.Button>
+							<div className="flex flex-col items-center gap-8 sm:flex-row">
+								<div className="flex items-center gap-8 order-2 sm:-order-none ">
+									<QuestionButton />
+									<a href="#footer-heading" className="hover:scale-110">
+										<BellAlertIcon
+											className="h-8 w-8 text-orange"
+											aria-label="newsletter"
+										/>
+									</a>
+								</div>
+
+								<Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-orange hover:bg-orange hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+									<span className="sr-only">Open main menu</span>
+									{open ? (
+										<XMarkIcon className="block h-14 w-14" aria-hidden="true" />
+									) : (
+										<Bars3Icon className="block h-14 w-14" aria-hidden="true" />
+									)}
+								</Disclosure.Button>
+							</div>
 						</div>
 					</header>
 
@@ -84,9 +102,7 @@ export default function Header() {
 												: "text-gray-300 hover:bg-orange/20 hover:text-white",
 											"block rounded-md px-3 py-2 text-2xl font-medium "
 										)}
-										aria-current={
-											pathname === item.href ? "page" : undefined
-										}
+										aria-current={pathname === item.href ? "page" : undefined}
 									>
 										{item.name}
 									</Disclosure.Button>

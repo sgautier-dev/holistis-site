@@ -1,6 +1,7 @@
 "use client";
 import { useState, FormEvent, useEffect } from "react";
 import Script from "next/script";
+import { BellAlertIcon } from "@heroicons/react/24/outline";
 
 export default function NewsletterForm() {
 	const [email, setEmail] = useState("");
@@ -88,56 +89,52 @@ export default function NewsletterForm() {
 	};
 
 	return (
-		<>
-			
-				
-					
-						<div className="mt-10 xl:mt-0">
-							<h2 className="text-sm font-bold tracking-tight text-white sm:text-base">
-								S&apos;abonner à Overview, la newsletter
-							</h2>
-							<p className="mt-4 text-sm leading-8 text-gray-300">
-								Avec cette newsletter, j’ai envie de vous partager ce qui
-								nourrit ma réflexion et mes accompagnements pour contribuer à la
-								transformation individuelle puis collective.
-							</p>
-							<form onSubmit={handleSubmit}>
-								<div className="mt-6 flex max-w-md gap-x-4">
-									<label htmlFor="email-address" className="sr-only">
-										Adresse e-mail
-									</label>
-									<input
-										id="email-address"
-										name="email"
-										type="email"
-										autoComplete="email"
-										placeholder="Saisissez votre e-mail"
-										value={email}
-										onChange={(e) => setEmail(e.target.value)}
-										required
-										className="min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-orange sm:text-sm sm:leading-6"
-									/>
-									<button
-										type="submit"
-										disabled={isSubmitting}
-										className="flex-none rounded-md bg-orange px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-orange/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange"
-									>
-										{isSubmitting ? "Envoi en cours..." : "Envoyer"}
-									</button>
-								</div>
-								{message && (
-									<p className="mt-4 text-right text-sm text-orange">
-										{message}
-									</p>
-								)}
-							</form>
-							<Script
-								src={`https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`}
-							/>
-						</div>
-					
-				
-				
-		</>
+		<div className="mt-10 xl:mt-0 ">
+			<div className="flex items-center gap-4">
+				<BellAlertIcon
+					className="h-6 w-6 text-orange animate-pulse"
+					aria-label="newsletter"
+				/>
+				<h2 className="text-sm font-bold tracking-tight text-orange sm:text-base">
+					S&apos;abonner à Overview, la newsletter
+				</h2>
+			</div>
+			<p className="mt-4 text-sm leading-8 text-gray-300">
+				Avec cette newsletter, j’ai envie de vous partager ce qui nourrit ma
+				réflexion et mes accompagnements pour contribuer à la transformation
+				individuelle puis collective.
+			</p>
+			<form onSubmit={handleSubmit}>
+				<div className="mt-6 flex max-w-md gap-x-4">
+					<label htmlFor="email-address" className="sr-only">
+						Adresse e-mail
+					</label>
+					<input
+						id="email-address"
+						name="email"
+						type="email"
+						autoComplete="email"
+						placeholder="Saisissez votre e-mail"
+						value={email}
+						onChange={(e) => setEmail(e.target.value)}
+						required
+						className="min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-orange sm:text-sm sm:leading-6"
+					/>
+					<button
+						type="submit"
+						disabled={isSubmitting}
+						className="flex-none rounded-md bg-orange px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-orange/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange"
+					>
+						{isSubmitting ? "Envoi en cours..." : "Envoyer"}
+					</button>
+				</div>
+				{message && (
+					<p className="mt-4 text-right text-sm text-orange">{message}</p>
+				)}
+			</form>
+			<Script
+				src={`https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`}
+			/>
+		</div>
 	);
 }
