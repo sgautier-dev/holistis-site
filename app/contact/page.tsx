@@ -9,7 +9,6 @@ function classNames(...classes: string[]) {
 }
 
 export default function Contact() {
-	
 	const [firstName, setFirstName] = useState("");
 	const [lastName, setLastName] = useState("");
 	const [email, setEmail] = useState("");
@@ -153,7 +152,7 @@ export default function Contact() {
 					Formulaire de contact
 				</h2>
 				<p className="mt-2 text-lg leading-8 text-gray-400">
-					Aute magna irure deserunt veniam aliqua magna enim voluptate.
+					Je suis à votre écoute pour toute demande d’information.
 				</p>
 			</div>
 			<form onSubmit={handleSubmit} className="mx-auto mt-16 max-w-xl sm:mt-20">
