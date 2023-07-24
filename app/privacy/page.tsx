@@ -8,7 +8,7 @@ export default function Privacy() {
 	return (
 		<main className="px-6 lg:px-8 py-20 sm:py-24 mx-auto max-w-7xl min-h-screen">
 			<article className="container mx-auto text-white">
-				<h1 className="text-3xl font-bold mb-4">
+				<h1 className="text-3xl font-bold mb-4 text-orange">
 					Politique de confidentialité
 				</h1>
 				<p className="mb-4">
