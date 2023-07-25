@@ -44,6 +44,7 @@ export default function Cards({ cards }: SameSameProps) {
 									alt={card.image.alt}
 									width={2200}
 									height={1100}
+									sizes="(min-width: 1280px) 363px, (min-width: 1040px) calc(50vw - 80px), (min-width: 820px) 320px, (min-width: 640px) 40vw, calc(100vw - 96px)"
 									className="rounded-2xl h-full w-full object-contain "
 								/>
 								<div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-orange/60" />
