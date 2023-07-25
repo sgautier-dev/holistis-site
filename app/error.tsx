@@ -22,7 +22,7 @@ export default function Error({
 				</h1>
 				<div className="mt-10 flex items-center justify-center gap-x-6">
 					<button
-						className="mt-4 flex-none rounded-md bg-orange px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-orange/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange"
+						className="mt-4 flex-none rounded-md bg-orange px-3.5 py-2.5 text-sm font-semibold text-black shadow-sm hover:bg-orange/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange"
 						onClick={
 							// Attempt to recover by trying to re-render the segment
 							() => reset()

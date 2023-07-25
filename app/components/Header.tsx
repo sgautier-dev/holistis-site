@@ -59,7 +59,7 @@ export default function Header() {
 									<a
 										href="#newsletter"
 										className="hover:scale-110"
-										aria-label="newsletter"
+										aria-label="to newsletter"
 									>
 										<BellAlertIcon className="h-8 w-8 text-orange mt-6 sm:mt-0" />
 									</a>
