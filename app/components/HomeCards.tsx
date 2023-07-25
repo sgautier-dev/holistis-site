@@ -14,7 +14,7 @@ export default function HomeCards() {
 				/>
 				<div className="absolute inset-0 -z-10 bg-gradient-to-t from-purple via-blue/40" />
 				<div className="absolute inset-0 -z-10 rounded-2xl ring-1 ring-inset ring-blue/10" />
-				<Link href={`/overview`}>
+				<Link href={`/overview`} aria-label="vers overview">
 					<span className="absolute inset-0 " />
 				</Link>
 			</article>
@@ -29,7 +29,7 @@ export default function HomeCards() {
 				/>
 				<div className="absolute inset-0 -z-10 bg-gradient-to-t from-purple via-blue/40" />
 				<div className="absolute inset-0 -z-10 rounded-2xl ring-1 ring-inset ring-blue/10" />
-				<Link href={`/samesame`}>
+				<Link href={`/samesame`} aria-label="vers same same">
 					<span className="absolute inset-0 " />
 				</Link>
 			</article>
@@ -44,7 +44,7 @@ export default function HomeCards() {
 				/>
 				<div className="absolute inset-0 -z-10 bg-gradient-to-t from-purple via-blue/40" />
 				<div className="absolute inset-0 -z-10 rounded-2xl ring-1 ring-inset ring-blue/10" />
-				<Link href={`/ressources`}>
+				<Link href={`/ressources`} aria-label="vers ressources">
 					<span className="absolute inset-0 " />
 				</Link>
 			</article>
