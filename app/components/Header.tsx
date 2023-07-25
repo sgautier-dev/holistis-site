@@ -56,11 +56,12 @@ export default function Header() {
 							<div className="flex flex-col items-center gap-8 sm:flex-row">
 								<div className="absolute top-0 right-0 sm:static sm:flex sm:items-center sm:gap-8 order-2 sm:-order-none ">
 									<QuestionButton />
-									<a href="#newsletter" className="hover:scale-110 ">
-										<BellAlertIcon
-											className="h-8 w-8 text-orange mt-6 sm:mt-0"
-											aria-label="newsletter"
-										/>
+									<a
+										href="#newsletter"
+										className="hover:scale-110"
+										aria-label="newsletter"
+									>
+										<BellAlertIcon className="h-8 w-8 text-orange mt-6 sm:mt-0" />
 									</a>
 								</div>
 
