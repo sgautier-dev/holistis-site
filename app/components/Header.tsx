@@ -31,7 +31,7 @@ export default function Header() {
 								className="hover:opacity-80 focus-visible:outline-orange"
 							>
 								<Image
-									className="border-2 border-black dark:border-slate-500 drop-shadow-xl shadow-black rounded-full "
+									className="border-2 border-black dark:border-slate-500 drop-shadow-xl shadow-black rounded-full w-16 h-16 sm:w-[70px] sm:h-[70px]"
 									src="/images/boris-profil-787x787.jpg"
 									width={70}
 									height={70}
@@ -44,6 +44,7 @@ export default function Header() {
 								className="hover:opacity-80 focus-visible:outline-orange"
 							>
 								<Image
+									className="w-48 h-auto sm:w-52 md:w-60"
 									src="/images/LogoHolistis-Blanc.gif"
 									width={250}
 									height={100}
@@ -61,16 +62,16 @@ export default function Header() {
 										className="hover:scale-110"
 										aria-label="vers la newsletter"
 									>
-										<BellAlertIcon className="h-8 w-8 text-orange mt-6 sm:mt-0" />
+										<BellAlertIcon className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 text-orange mt-6 sm:mt-0" />
 									</a>
 								</div>
 
 								<Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-orange hover:bg-orange hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
 									<span className="sr-only">Open main menu</span>
 									{open ? (
-										<XMarkIcon className="block h-14 w-14" aria-hidden="true" />
+										<XMarkIcon className="block h-12 w-12 md:h-14 md:w-14" aria-hidden="true" />
 									) : (
-										<Bars3Icon className="block h-14 w-14" aria-hidden="true" />
+										<Bars3Icon className="block h-12 w-12 md:h-14 md:w-14" aria-hidden="true" />
 									)}
 								</Disclosure.Button>
 							</div>

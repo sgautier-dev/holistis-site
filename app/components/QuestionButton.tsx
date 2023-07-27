@@ -32,7 +32,7 @@ export default function QuestionButton() {
 					width={30}
 					height={50}
 					alt="Questions Holistis"
-					className="object-cover ml-auto"
+					className="object-cover ml-auto w-6 md:w-7 h-auto"
 					priority
 				/>
 			</button>
