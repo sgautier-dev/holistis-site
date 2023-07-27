@@ -91,7 +91,7 @@ export default function Footer() {
 						<a
 							href="#"
 							aria-label="back to top"
-							className="fixed right-4 bottom-20 opacity-40 hover:opacity-70"
+							className="fixed right-4 bottom-20 opacity-40 hover:opacity-70 scale-75 md:scale-100"
 						>
 							<BsArrowUpSquare size={40} />
 						</a>
