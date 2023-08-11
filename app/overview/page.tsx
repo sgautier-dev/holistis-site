@@ -2,6 +2,7 @@ import Articles from "@/app/components/Articles";
 import Image from "next/image";
 import { getAllOverview } from "@/sanity/lib/getAllOverview";
 import { notFound } from "next/navigation";
+import overviewBanner from "@/public/images/Website_Overview_bandeau-3300X1018.jpg"
 
 export const metadata = {
 	title: "Overview",
@@ -18,7 +19,8 @@ export default async function Overview() {
 		<main className="px-6 lg:px-8 py-20 sm:py-24 mx-auto max-w-7xl min-h-screen">
 			<div className="mx-auto max-w-md text-center">
 				<Image
-					src="/images/Website_Overview_bandeau-3300X1018.jpg"
+					src={overviewBanner}
+					placeholder="blur"
 					width={400}
 					height={133}
 					alt="Overview Holistis"

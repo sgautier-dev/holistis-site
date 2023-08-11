@@ -2,7 +2,8 @@ import Image from "next/image";
 import { BsLinkedin, BsArrowUpSquare } from "react-icons/bs";
 import { navigation } from "@/lib/navigation";
 import NewsletterForm from "./NewsletterForm";
-
+import logoRegion from "@/public/images/LogoRegionReunion.jpg"
+import logoUE from "@/public/images/LogoUnionEuropeenne.jpg"
 
 export default function Footer() {
 	const today = new Date();
@@ -54,14 +55,16 @@ export default function Footer() {
 						</div>
 						<div className="grid gap-1 md:grid-cols-2 md:gap-3 place-items-center">
 							<Image
-								src="/images/LogoRegionReunion.jpg"
+								src={logoRegion}
+								placeholder="blur"
 								alt="logo de la région réunion"
 								width={100}
 								height={60}
 								className="aspect-auto object-cover"
 							/>
 							<Image
-								src="/images/LogoUnionEuropeenne.jpg"
+								src={logoUE}
+								placeholder="blur"
 								alt="logo union européenne"
 								width={100}
 								height={60}

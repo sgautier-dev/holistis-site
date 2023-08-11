@@ -12,6 +12,7 @@ import {
 	BellAlertIcon,
 } from "@heroicons/react/24/outline";
 import QuestionButton from "./QuestionButton";
+import borisProfil from "@/public/images/boris-profil-787x787.jpg"
 
 function classNames(...classes: string[]) {
 	return classes.filter(Boolean).join(" ");
@@ -32,9 +33,10 @@ export default function Header() {
 							>
 								<Image
 									className="border-2 border-black dark:border-slate-500 drop-shadow-xl shadow-black rounded-full w-16 h-16 sm:w-[70px] sm:h-[70px]"
-									src="/images/boris-profil-787x787.jpg"
+									src={borisProfil}
 									width={70}
 									height={70}
+									placeholder="blur"
 									alt="boris benet photo de profile"
 									priority={true}
 								/>

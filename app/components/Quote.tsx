@@ -1,4 +1,5 @@
 import Image from "next/image";
+import quotePic from "@/public/images/fantasy-2760153_1920.jpg"
 
 type QuoteProps = {
 	quote: BasicQuote;
@@ -41,8 +42,9 @@ export default async function Quote({ quote }: QuoteProps) {
 					<div className="col-end-1 w-32 lg:row-span-4 lg:w-72">
 						<Image
 							className="rounded-xl lg:rounded-3xl"
-							src="/images/fantasy-2760153_1920.jpg"
+							src={quotePic}
 							alt="wisdom"
+							placeholder="blur"
 							width={200}
 							height={100}
 						/>
