@@ -67,7 +67,7 @@ export async function POST(req: NextRequest) {
 	console.log(campaignData);
 
 	const campaignHtml = `
-    <div style="text-align:center; margin: 0 auto;">
+    <div style="text-align:center; margin: 0 auto; max-width: 672px; color: #000066; line-height: 28px;">
         <img src="${campaignData.banner_image}" alt="Banner Image" style="width: 100%; max-width: 800px;">
         <h1 style="font-family: 'Verdana', sans-serif; margin-top: 2em; font-size: 24px; text-transform: uppercase; color: #FF6600;">${campaignData.title}</h1>
         <figure style="margin-top: 2em;">
