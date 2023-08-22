@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect, FormEvent } from "react";
 import Script from "next/script";
+import useRecaptcha from "@/lib/hooks/useRecaptcha";
 import { Switch } from "@headlessui/react";
 import { ExclamationTriangleIcon } from "@heroicons/react/24/solid";
 
@@ -43,18 +44,7 @@ export default function Contact() {
 		setSubmitError("");
 	};
 
-	const getRecaptchaToken = async () => {
-		try {
-			const token = await window.grecaptcha.execute(
-				process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY,
-				{ action: "contact_form" }
-			);
-			return token;
-		} catch (error) {
-			console.error(error);
-			return null;
-		}
-	};
+	const { getRecaptchaToken } = useRecaptcha("contact_form");
 
 	const handleSubmit = async (e: FormEvent) => {
 		e.preventDefault();

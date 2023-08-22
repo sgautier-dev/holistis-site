@@ -1,8 +1,8 @@
 "use client";
 import { useState, FormEvent, useEffect } from "react";
 import Script from "next/script";
+import useRecaptcha from "@/lib/hooks/useRecaptcha";
 import { BellAlertIcon } from "@heroicons/react/24/outline";
-
 export default function NewsletterForm() {
 	const [email, setEmail] = useState("");
 	const [message, setMessage] = useState("");
@@ -24,18 +24,7 @@ export default function NewsletterForm() {
 		return emailRegex.test(email);
 	};
 
-	const getRecaptchaToken = async () => {
-		try {
-			const token = await window.grecaptcha.execute(
-				process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY,
-				{ action: "newsletter_form" }
-			);
-			return token;
-		} catch (error) {
-			console.error(error);
-			return null;
-		}
-	};
+	const { getRecaptchaToken } = useRecaptcha("newsletter_form");
 
 	const handleSubmit = async (e: FormEvent) => {
 		e.preventDefault();
@@ -70,7 +59,6 @@ export default function NewsletterForm() {
 			});
 
 			const data = await response.json();
-			// console.log('data dans NewsletterForm: ', data)
 
 			if (response.ok) {
 				setMessage(data.message);

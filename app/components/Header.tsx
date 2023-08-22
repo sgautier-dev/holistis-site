@@ -12,7 +12,7 @@ import {
 	BellAlertIcon,
 } from "@heroicons/react/24/outline";
 import QuestionButton from "./QuestionButton";
-import borisProfil from "@/public/images/boris-profil-787x787.jpg"
+import borisProfil from "@/public/images/boris-profil-787x787.jpg";
 
 function classNames(...classes: string[]) {
 	return classes.filter(Boolean).join(" ");
@@ -71,9 +71,15 @@ export default function Header() {
 								<Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-orange hover:bg-orange hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
 									<span className="sr-only">Open main menu</span>
 									{open ? (
-										<XMarkIcon className="block h-12 w-12 md:h-14 md:w-14" aria-hidden="true" />
+										<XMarkIcon
+											className="block h-12 w-12 md:h-14 md:w-14"
+											aria-hidden="true"
+										/>
 									) : (
-										<Bars3Icon className="block h-12 w-12 md:h-14 md:w-14" aria-hidden="true" />
+										<Bars3Icon
+											className="block h-12 w-12 md:h-14 md:w-14"
+											aria-hidden="true"
+										/>
 									)}
 								</Disclosure.Button>
 							</div>

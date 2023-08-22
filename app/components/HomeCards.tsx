@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-import overviewBanner from "@/public/images/Website_Overview_bandeau-3300X1018.jpg"
-import samsameBanner from "@/public/images/Website_SSBD_bandeau-3300X1020.jpg"
-import resourcesBaner from "@/public/images/Website_Ressources_bandeau-330X1022.jpg"
+import overviewBanner from "@/public/images/Website_Overview_bandeau-3300X1018.jpg";
+import samsameBanner from "@/public/images/Website_SSBD_bandeau-3300X1020.jpg";
+import resourcesBaner from "@/public/images/Website_Ressources_bandeau-330X1022.jpg";
 
 export default function HomeCards() {
 	return (

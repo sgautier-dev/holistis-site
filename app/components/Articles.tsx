@@ -53,15 +53,6 @@ export default function Articles({ articles }: ArticlesProps) {
 								<time dateTime={article.publishedAt} className="mr-8">
 									{formatDate(article.publishedAt)}
 								</time>
-								{/* <div className="-ml-4 flex items-center gap-x-4">
-								<svg
-									viewBox="0 0 2 2"
-									className="-ml-0.5 h-0.5 w-0.5 flex-none fill-white/50"
-								>
-									<circle cx={1} cy={1} r={1} />
-								</svg>
-								
-							</div> */}
 							</div>
 							<h3 className="mt-3 text-lg uppercase font-semibold leading-6 text-orange">
 								<Link href={`/overview/${article.slug.current}`}>

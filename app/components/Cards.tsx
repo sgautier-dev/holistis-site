@@ -1,7 +1,6 @@
 "use client";
 import Image from "next/image";
 import { urlForImage } from "@/sanity/lib/image";
-// import { formatDate } from "@/sanity/lib/utils";
 import { PortableText } from "@portabletext/react";
 import useItemFilter from "@/lib/hooks/useItemFilter";
 import ItemFilter from "./ItemFilter";
@@ -50,15 +49,6 @@ export default function Cards({ cards }: SameSameProps) {
 								<div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-orange/60" />
 							</div>
 							<div className="max-w-xl">
-								{/* <div className="mt-8 flex items-center gap-x-4 text-xs text-white">
-									<time dateTime={card.publishedAt} className="mr-8">
-										{formatDate(card.publishedAt)}
-									</time>
-								</div> */}
-
-								{/* <h3 className="mt-3 text-lg font-semibold leading-6 text-orange group-hover:scale-105 transition-transform duration-500 ease-in-out">
-									{card.title}
-								</h3> */}
 								<div className="mt-5 text-lg leading-6 text-white">
 									<PortableText value={card.text} />
 								</div>
