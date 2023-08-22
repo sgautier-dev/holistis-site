@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 const mailchimp = require("@mailchimp/mailchimp_marketing");
 import logger from "@/lib/logger";
+const validator = require("validator");
 
 mailchimp.setConfig({
 	apiKey: process.env.MAILCHIMP_API_KEY,
@@ -10,10 +11,16 @@ mailchimp.setConfig({
 export async function POST(req: NextRequest) {
 	const { email, token } = await req.json();
 
-	const verifyRecaptchaUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${token}`;
+	const params = new URLSearchParams();
+	params.append("secret", process.env.RECAPTCHA_SECRET_KEY!);
+	params.append("response", token);
+	const verifyRecaptchaUrl = `https://www.google.com/recaptcha/api/siteverify?${params.toString()}`;
 
 	if (!email)
 		return NextResponse.json({ message: "E-mail absent!" }, { status: 400 });
+	if (!validator.isEmail(email)) {
+		return NextResponse.json({ message: "Email invalide" }, { status: 400 });
+	}
 
 	try {
 		const verifyRecaptcha = await fetch(verifyRecaptchaUrl);
@@ -27,7 +34,17 @@ export async function POST(req: NextRequest) {
 				{ status: 400 }
 			);
 		}
+	} catch (error: any) {
+		logger.error(error);
+		return NextResponse.json(
+			{
+				message: "Une erreur est survenue lors de la vérification reCAPTCHA.",
+			},
+			{ status: 500 }
+		);
+	}
 
+	try {
 		const listId = process.env.MAILCHIMP_AUDIENCE_ID;
 		const response = await mailchimp.lists.addListMember(listId, {
 			email_address: email,

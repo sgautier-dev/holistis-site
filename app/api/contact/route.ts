@@ -3,14 +3,6 @@ import logger from "@/lib/logger";
 const nodemailer = require("nodemailer");
 const validator = require("validator");
 
-const requiredEnvVariables = [
-	"SMTP_HOST",
-	"SMTP_PORT",
-	"SMTP_USER",
-	"SMTP_PASS",
-	"RECAPTCHA_SECRET_KEY",
-];
-
 // Create a transporter object with SMTP configuration
 const transporter = nodemailer.createTransport({
 	host: process.env.SMTP_HOST,
@@ -55,12 +47,6 @@ export async function POST(req: NextRequest) {
 	}
 
 	try {
-		for (const variable of requiredEnvVariables) {
-			if (!process.env[variable]) {
-				throw new Error(`missing ${variable} in env variables`);
-			}
-		}
-
 		const verifyRecaptcha = await fetch(verifyRecaptchaUrl);
 		const responseRecaptcha = await verifyRecaptcha.json();
 
@@ -72,7 +58,17 @@ export async function POST(req: NextRequest) {
 				{ status: 400 }
 			);
 		}
+	} catch (error: any) {
+		logger.error(error);
+		return NextResponse.json(
+			{
+				message: "Une erreur est survenue lors de la vérification reCAPTCHA.",
+			},
+			{ status: 500 }
+		);
+	}
 
+	try {
 		await sendEmail(firstName, lastName, email, message);
 
 		return NextResponse.json(
