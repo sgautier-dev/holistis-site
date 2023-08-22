@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://www.holistis.net
+Host: http://localhost:3000
 
 # Sitemaps
-Sitemap: https://www.holistis.net/sitemap.xml
+Sitemap: http://localhost:3000/sitemap.xml

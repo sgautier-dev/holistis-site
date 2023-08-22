@@ -26,6 +26,7 @@ export default defineType({
 			name: "title",
 			title: "Titre de l'article",
 			type: "string",
+			validation: (Rule) => Rule.required(),
 		}),
 		{
 			name: "slug",
