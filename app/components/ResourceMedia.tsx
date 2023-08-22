@@ -1,5 +1,6 @@
 import { getEmbeddedYouTubeUrl } from "@/lib/getEmbeddedYouTubeUrl";
 import Image from "next/image";
+const sanitizeUrl = require("@braintree/sanitize-url").sanitizeUrl;
 
 type ResourceMediaProps = {
 	mediaType: Resource["mediaType"];
@@ -12,11 +13,14 @@ export default function ResourceMedia({
 	media,
 	alt,
 }: ResourceMediaProps) {
+	const sanitizedMediaUrl = sanitizeUrl(media.mediaUrl);
 	switch (mediaType) {
 		case "video":
-			if (media.mediaUrl) {
+			if (sanitizedMediaUrl) {
 				// Construct the embedded YouTube URL
-				const embeddedUrl = getEmbeddedYouTubeUrl(media.mediaUrl);
+				const embeddedUrl = sanitizeUrl(
+					getEmbeddedYouTubeUrl(sanitizedMediaUrl)
+				);
 
 				if (embeddedUrl) {
 					return (
@@ -34,7 +38,7 @@ export default function ResourceMedia({
 							controls
 							className="w-full aspect-video rounded-xl border border-orange"
 						>
-							<source src={media.mediaUrl} />
+							<source src={sanitizedMediaUrl} />
 							Votre navigateur ne prend pas en charge le lecteur vidéo.
 						</video>
 					);
@@ -42,10 +46,10 @@ export default function ResourceMedia({
 			}
 			break;
 		case "image":
-			if (media.mediaUrl) {
+			if (sanitizedMediaUrl) {
 				return (
 					<Image
-						src={media.mediaUrl}
+						src={sanitizedMediaUrl}
 						width={200}
 						height={100}
 						alt={alt}
@@ -57,7 +61,7 @@ export default function ResourceMedia({
 		case "web":
 			return (
 				<div className="inline-block">
-					<a href={media.mediaUrl} target="_blank" rel="noopener noreferrer">
+					<a href={sanitizedMediaUrl} target="_blank" rel="noopener noreferrer">
 						<p className="underline text-orange/80 hover:text-orange/40">
 							{alt}
 						</p>
@@ -67,7 +71,7 @@ export default function ResourceMedia({
 		case "doc":
 			return (
 				<div className="inline-block">
-					<a href={media.mediaUrl} target="_blank" rel="noopener noreferrer">
+					<a href={sanitizedMediaUrl} target="_blank" rel="noopener noreferrer">
 						<p className="underline text-orange/80 hover:text-orange/40">
 							{alt || "Open Document"}
 						</p>
@@ -77,7 +81,7 @@ export default function ResourceMedia({
 		case "audio":
 			return (
 				<audio controls className="w-full rounded-xl border border-orange">
-					<source src={media.mediaUrl} type="audio/mpeg" />
+					<source src={sanitizedMediaUrl} type="audio/mpeg" />
 					Votre navigateur ne prend pas en charge le lecteur audio.
 				</audio>
 			);

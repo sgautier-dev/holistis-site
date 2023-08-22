@@ -40,7 +40,6 @@ export default function QuestionModal({
 							leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
 						>
 							<Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-blue px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6">
-								
 								<div className="absolute right-0 top-0 pr-4 pt-4 block">
 									<button
 										type="button"
@@ -52,7 +51,9 @@ export default function QuestionModal({
 									</button>
 								</div>
 								<div>
-								<p className="text-orange absolute left-0 top-0 pl-4 pt-4 block">{question.category}</p>
+									<p className="text-orange absolute left-0 top-0 pl-4 pt-4 block">
+										{question.category}
+									</p>
 									<div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-white">
 										<QuestionMarkCircleIcon
 											className="h-10 w-10 text-orange"
@@ -67,15 +68,6 @@ export default function QuestionModal({
 										</div>
 									</div>
 								</div>
-								{/* <div className="mt-5 sm:mt-6">
-									<button
-										type="button"
-										className="inline-flex w-full justify-center rounded-md bg-orange px-3 py-2 text-lg font-semibold text-white shadow-sm hover:bg-orange/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange"
-										onClick={() => setOpen(false)}
-									>
-										Fermer
-									</button>
-								</div> */}
 							</Dialog.Panel>
 						</Transition.Child>
 					</div>

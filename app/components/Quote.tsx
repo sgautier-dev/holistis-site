@@ -1,5 +1,5 @@
 import Image from "next/image";
-import quotePic from "@/public/images/fantasy-2760153_1920.jpg"
+import quotePic from "@/public/images/fantasy-2760153_1920.jpg";
 
 type QuoteProps = {
 	quote: BasicQuote;
