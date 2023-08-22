@@ -2,6 +2,7 @@
 import { useState, FormEvent, useEffect } from "react";
 import Script from "next/script";
 import useRecaptcha from "@/lib/hooks/useRecaptcha";
+import { validateEmail } from "@/lib/utils";
 import { BellAlertIcon } from "@heroicons/react/24/outline";
 export default function NewsletterForm() {
 	const [email, setEmail] = useState("");
@@ -18,11 +19,6 @@ export default function NewsletterForm() {
 		`;
 		document.head.appendChild(style);
 	}, []);
-
-	const validateEmail = (email: string) => {
-		const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
-		return emailRegex.test(email);
-	};
 
 	const { getRecaptchaToken } = useRecaptcha("newsletter_form");
 

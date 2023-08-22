@@ -2,6 +2,7 @@
 import { useState, useEffect, FormEvent } from "react";
 import Script from "next/script";
 import useRecaptcha from "@/lib/hooks/useRecaptcha";
+import { validateEmail } from "@/lib/utils";
 import { Switch } from "@headlessui/react";
 import { ExclamationTriangleIcon } from "@heroicons/react/24/solid";
 
@@ -29,11 +30,6 @@ export default function Contact() {
 		`;
 		document.head.appendChild(style);
 	}, []);
-
-	const validateEmail = (email: string) => {
-		const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
-		return emailRegex.test(email);
-	};
 
 	const resetForm = () => {
 		setAgreed(false);

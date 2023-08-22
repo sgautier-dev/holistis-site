@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import logger from "@/lib/logger";
 const nodemailer = require("nodemailer");
-const validator = require("validator");
+import { validateEmail } from "@/lib/utils";
 
 // Create a transporter object with SMTP configuration
 const transporter = nodemailer.createTransport({
@@ -42,7 +42,7 @@ export async function POST(req: NextRequest) {
 			{ message: "Tous les champs du formulaire sont requis !" },
 			{ status: 400 }
 		);
-	if (!validator.isEmail(email)) {
+	if (!validateEmail(email)) {
 		return NextResponse.json({ message: "Email invalide" }, { status: 400 });
 	}
 

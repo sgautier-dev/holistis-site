@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 const mailchimp = require("@mailchimp/mailchimp_marketing");
 import logger from "@/lib/logger";
-const validator = require("validator");
+import { validateEmail } from "@/lib/utils";
 
 mailchimp.setConfig({
 	apiKey: process.env.MAILCHIMP_API_KEY,
@@ -18,7 +18,7 @@ export async function POST(req: NextRequest) {
 
 	if (!email)
 		return NextResponse.json({ message: "E-mail absent!" }, { status: 400 });
-	if (!validator.isEmail(email)) {
+	if (!validateEmail(email)) {
 		return NextResponse.json({ message: "Email invalide" }, { status: 400 });
 	}
 
