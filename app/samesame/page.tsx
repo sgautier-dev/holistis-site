@@ -2,7 +2,7 @@ import Image from "next/image";
 import Cards from "../components/Cards";
 import { getSameSame } from "@/sanity/lib/getSameSame";
 import { notFound } from "next/navigation";
-import samsameBanner from "@/public/images/Website_SSBD_bandeau-3300X1020.jpg"
+import samsameBanner from "@/public/images/Website_SSBD_bandeau-3300X1020.jpg";
 
 export const metadata = {
 	title: "Same Same",
@@ -28,19 +28,6 @@ export default async function SameSame() {
 					priority
 				/>
 			</div>
-			{/* <figure className="border-l border-orange pl-8 mt-8">
-				<blockquote className="text-lg font-semibold text-white">
-					<p>
-						L&apos;overview effect est le &apos;choc&apos; cognitif, la prise de
-						conscience, l&apos;effet ressenti par les astronautes la première
-						fois qu&apos;ils voient la terre depuis l&apos;espace. Plus de la
-						moitié d&apos;entre eux reconnaissent avoir radicalement changé
-						ensuite. Chacun de nous a vécu un ou plusieurs « overview effect »,
-						de plus ou moins grande importance. C’est ce moment où notre
-						perception change, et où l’après ne sera plus comme avant.
-					</p>
-				</blockquote>
-			</figure> */}
 
 			<Cards cards={cards} />
 		</main>

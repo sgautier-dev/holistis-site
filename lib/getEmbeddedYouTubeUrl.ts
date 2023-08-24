@@ -1,12 +1,20 @@
 export function getEmbeddedYouTubeUrl(videoUrl: string): string | null {
-	const youtubeRegex =
-		/^(?:https?:\/\/)?(?:www\.)?youtube\.com\/watch\?v=([^&]+).*$/;
-	const match = videoUrl.match(youtubeRegex);
+	try {
+		const url = new URL(videoUrl);
 
-	if (match) {
-		const videoId = match[1];
-		return `https://www.youtube-nocookie.com/embed/${videoId}?controls=1&modestbranding=1`;
+		// Check if the hostname is a youtube domain
+		if (url.hostname === "youtube.com" || url.hostname === "www.youtube.com") {
+			const videoId = url.searchParams.get("v");
+
+			if (videoId) {
+				return `https://www.youtube-nocookie.com/embed/${videoId}?controls=1&modestbranding=1`;
+			}
+		}
+	} catch (e) {
+		// Invalid URL
+		return null;
 	}
 
+	// Valid URL but not a YouTube URL or without a video ID
 	return null;
 }

@@ -7,16 +7,18 @@ interface useItemFilterProps<T extends CategoryItem> {
 	getItemTypes: (item: T) => string[];
 }
 
-export default function useItemFilter<T extends CategoryItem>({
-	items,
-	getItemTypes,
-	allLabel = "Tout", // default value if allLabel is not provided
-}: useItemFilterProps<T> & { allLabel?: string }): {
+type UseItemFilterResult<T> = {
 	uniqueItems: string[];
 	selectedItem: string;
 	setSelectedItem: React.Dispatch<React.SetStateAction<string>>;
 	filteredItems: T[];
-} {
+};
+
+export default function useItemFilter<T extends CategoryItem>({
+	items,
+	getItemTypes,
+	allLabel = "Tout", // default value if allLabel is not provided
+}: useItemFilterProps<T> & { allLabel?: string }): UseItemFilterResult<T> {
 	const [selectedItem, setSelectedItem] = useState<string>(allLabel);
 
 	const uniqueItems = useMemo(() => {
