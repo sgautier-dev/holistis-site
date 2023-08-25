@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import logger from "@/lib/logger";
 const nodemailer = require("nodemailer");
-import { validateEmail } from "@/lib/utils";
+import { validateEmail, getRecaptchaVerificationUrl } from "@/lib/utils";
 
 // Create a transporter object with SMTP configuration
 const transporter = nodemailer.createTransport({
@@ -33,8 +33,6 @@ export async function POST(req: NextRequest) {
 
 	// console.log('SMTP_PASS', process.env.SMTP_PASS)
 
-	const verifyRecaptchaUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${token}`;
-
 	// console.log('data: ',`${firstName} ${lastName} ${email} ${message}`)
 
 	if (!email || !firstName || !lastName || !message)
@@ -47,6 +45,7 @@ export async function POST(req: NextRequest) {
 	}
 
 	try {
+		const verifyRecaptchaUrl = getRecaptchaVerificationUrl(token);
 		const verifyRecaptcha = await fetch(verifyRecaptchaUrl);
 		const responseRecaptcha = await verifyRecaptcha.json();
 

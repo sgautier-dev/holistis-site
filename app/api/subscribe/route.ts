@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 const mailchimp = require("@mailchimp/mailchimp_marketing");
 import logger from "@/lib/logger";
-import { validateEmail } from "@/lib/utils";
+import { validateEmail, getRecaptchaVerificationUrl } from "@/lib/utils";
 
 mailchimp.setConfig({
 	apiKey: process.env.MAILCHIMP_API_KEY,
@@ -11,11 +11,6 @@ mailchimp.setConfig({
 export async function POST(req: NextRequest) {
 	const { email, token } = await req.json();
 
-	const params = new URLSearchParams();
-	params.append("secret", process.env.RECAPTCHA_SECRET_KEY!);
-	params.append("response", token);
-	const verifyRecaptchaUrl = `https://www.google.com/recaptcha/api/siteverify?${params.toString()}`;
-
 	if (!email)
 		return NextResponse.json({ message: "E-mail absent!" }, { status: 400 });
 	if (!validateEmail(email)) {
@@ -23,6 +18,7 @@ export async function POST(req: NextRequest) {
 	}
 
 	try {
+		const verifyRecaptchaUrl = getRecaptchaVerificationUrl(token);
 		const verifyRecaptcha = await fetch(verifyRecaptchaUrl);
 		const responseRecaptcha = await verifyRecaptcha.json();
 
