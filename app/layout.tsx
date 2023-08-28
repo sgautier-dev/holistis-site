@@ -1,5 +1,5 @@
 import "./globals.css";
-import "../lib/validateEnv"
+import "../lib/validateEnv";
 import Header from "./components/Header";
 import localFont from "next/font/local";
 import Footer from "./components/Footer";
@@ -69,13 +69,13 @@ const bariol = localFont({
 });
 
 export const metadata = {
-	title: "Holistis - Voyage introspectif pour une nouvelle perspective",
+	title: "Holistis, l’essence de la transformation",
 	description:
-		"Découvrez Holistis, votre point de départ vers une perception renouvelée. Naviguez à travers des articles introspectifs, des confrontations de pensées et des ressources éclairantes. Chaque visite est une opportunité d'expérimenter votre propre 'Overview Effect'.",
+		"Ici vous découvrirez mes sources d’inspiration pour vous accompagnez individuellement ou collectivement.Elles invitent à des changements de perspective. Je vous souhaite qu’elles vous offrent des perspectives de changement.",
 	authors: [{ name: "Sébastien Gautier", url: "https://www.sgautier.dev" }],
 };
 
-// export const revalidate = 60; //to get freshest data from sanity
+// export const revalidate = 60; //to get freshest data from sanity, replaced by on demand revalidation
 
 export default function RootLayout({
 	children,
