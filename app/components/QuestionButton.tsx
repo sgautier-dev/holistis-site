@@ -10,23 +10,32 @@ export default function QuestionButton() {
 		questionText: "En cours de chargement...",
 	});
 	const lastQuestionIndex = useRef<number | null>(null);
+	const questionsCache = useRef<BasicQuestion[] | null>(null);
 
 	const openQuestion = async () => {
-		setIsQuestionOpen(true); // Immediately open the modal with the loading message
-		const response = await fetch("/api/questions");
-		const questions = await response.json();
+		setIsQuestionOpen(true);
 
-		let randomIndex;
-		if (questions.length > 1) {
-			do {
-				randomIndex = Math.floor(Math.random() * questions.length);
-			} while (randomIndex === lastQuestionIndex.current);
-		} else {
-			randomIndex = 0;
+		if (!questionsCache.current) {
+			// Fetch only if cache is empty
+			const response = await fetch("/api/questions");
+			questionsCache.current = await response.json();
 		}
 
-		lastQuestionIndex.current = randomIndex;
-		setQuestion(questions[randomIndex]);
+		if (questionsCache.current && questionsCache.current.length > 0) {
+			let randomIndex;
+			if (questionsCache.current.length > 1) {
+				do {
+					randomIndex = Math.floor(
+						Math.random() * questionsCache.current.length
+					);
+				} while (randomIndex === lastQuestionIndex.current);
+			} else {
+				randomIndex = 0;
+			}
+
+			lastQuestionIndex.current = randomIndex;
+			setQuestion(questionsCache.current[randomIndex]);
+		}
 	};
 
 	const closeQuestion = () => {

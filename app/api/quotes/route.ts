@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import logger from "@/lib/logger";
 import { client } from "@/sanity/lib/client";
 
+export const dynamic = "force-dynamic";
+
 export async function GET(request: NextRequest): Promise<NextResponse> {
 	try {
 		const query = '*[_type == "quote"] {quoteText, quoteAuthor}';
