@@ -1,10 +1,12 @@
-// import NewsletterForm from "./components/NewsletterForm";
 import HomeCards from "./components/HomeCards";
 import Quote from "./components/Quote";
-import { getRandomQuote } from "@/sanity/lib/getRandomQuote";
 
 export default async function Home() {
-	const quote = await getRandomQuote();
+	const response = await fetch(`${process.env.SITE_URL}/api/quotes`);
+	const quotes = await response.json();
+
+	const randomIndex = Math.floor(Math.random() * quotes.length);
+	const quote = quotes[randomIndex];
 
 	return (
 		<main className="px-6 lg:px-8 py-20 sm:py-24 mx-auto max-w-7xl min-h-screen">

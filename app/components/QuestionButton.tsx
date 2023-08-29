@@ -2,7 +2,6 @@
 import { useState, useRef } from "react";
 import Image from "next/image";
 import QuestionModal from "./QuestionModal";
-import { getRandomQuestion } from "@/sanity/lib/getRandomQuestion";
 
 export default function QuestionButton() {
 	const [isQuestionOpen, setIsQuestionOpen] = useState(false);
@@ -15,7 +14,7 @@ export default function QuestionButton() {
 	const openQuestion = async () => {
 		setIsQuestionOpen(true); // Immediately open the modal with the loading message
 		const response = await fetch("/api/questions");
-		const questions = await response.json(); // Assume this returns an array of questions
+		const questions = await response.json();
 
 		let randomIndex;
 		if (questions.length > 1) {
