@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Image from "next/image";
 import QuestionModal from "./QuestionModal";
 import { getRandomQuestion } from "@/sanity/lib/getRandomQuestion";
@@ -10,11 +10,24 @@ export default function QuestionButton() {
 		category: "Attente",
 		questionText: "En cours de chargement...",
 	});
+	const lastQuestionIndex = useRef<number | null>(null);
 
 	const openQuestion = async () => {
 		setIsQuestionOpen(true); // Immediately open the modal with the loading message
-		const newQuestion = await getRandomQuestion();
-		setQuestion(newQuestion); // Then update the question once the fetch is done
+		const response = await fetch("/api/questions");
+		const questions = await response.json(); // Assume this returns an array of questions
+
+		let randomIndex;
+		if (questions.length > 1) {
+			do {
+				randomIndex = Math.floor(Math.random() * questions.length);
+			} while (randomIndex === lastQuestionIndex.current);
+		} else {
+			randomIndex = 0;
+		}
+
+		lastQuestionIndex.current = randomIndex;
+		setQuestion(questions[randomIndex]);
 	};
 
 	const closeQuestion = () => {
