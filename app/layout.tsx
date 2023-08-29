@@ -71,7 +71,7 @@ const bariol = localFont({
 export const metadata = {
 	title: "Holistis, l’essence de la transformation",
 	description:
-		"Ici vous découvrirez mes sources d’inspiration pour vous accompagnez individuellement ou collectivement.Elles invitent à des changements de perspective. Je vous souhaite qu’elles vous offrent des perspectives de changement.",
+		"Ici vous découvrirez mes sources d’inspiration pour vous accompagnez individuellement ou collectivement. Elles invitent à des changements de perspective. Je vous souhaite qu’elles vous offrent des perspectives de changement.",
 	authors: [{ name: "Sébastien Gautier", url: "https://www.sgautier.dev" }],
 };
 

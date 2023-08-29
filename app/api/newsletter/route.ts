@@ -63,24 +63,6 @@ export async function POST(req: NextRequest) {
 	const body = await req.text(); // Read the body into a string
 	const siteUrl = process.env.SITE_URL;
 
-	if (!siteUrl) {
-		return NextResponse.json(
-			{
-				message: "Missing WEBSITE URL in env variables!",
-			},
-			{ status: 500 } // or appropriate status code
-		);
-	}
-
-	if (!secret) {
-		return NextResponse.json(
-			{
-				message: "Missing Webhook Secret in env variables!",
-			},
-			{ status: 500 } // or appropriate status code
-		);
-	}
-
 	if (!signature) {
 		return NextResponse.json(
 			{
@@ -90,7 +72,7 @@ export async function POST(req: NextRequest) {
 		);
 	}
 
-	if (!isValidSignature(body, signature, secret)) {
+	if (!isValidSignature(body, signature, secret!)) {
 		return NextResponse.json(
 			{
 				message: "Invalid Webhook Signature!",
