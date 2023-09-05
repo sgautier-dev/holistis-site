@@ -2,7 +2,7 @@ import Image from "next/image";
 import { BsLinkedin, BsArrowUpSquare } from "react-icons/bs";
 import { navigation } from "@/lib/navigation";
 import NewsletterForm from "./NewsletterForm";
-import logoRegion from "@/public/images/LogoRegionReunion.jpg"
+import logoRegion from "@/public/images/logo_region.jpg"
 import logoUE from "@/public/images/LogoUnionEuropeenne.jpg"
 
 export default function Footer() {
@@ -58,8 +58,8 @@ export default function Footer() {
 								src={logoRegion}
 								placeholder="blur"
 								alt="logo de la région réunion"
-								width={100}
-								height={60}
+								width={150}
+								height={75}
 								className="aspect-auto object-cover"
 							/>
 							<Image
@@ -67,7 +67,7 @@ export default function Footer() {
 								placeholder="blur"
 								alt="logo union européenne"
 								width={100}
-								height={60}
+								height={80}
 								className="aspect-auto object-cover"
 							/>
 							<p className="text-center text-[10px] text-white col-span-2 self-start">

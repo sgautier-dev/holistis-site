@@ -47,6 +47,13 @@ export default function Privacy() {
 					qui assure la sécurité et la protection des données selon leurs
 					propres politiques.
 				</p>
+				<h2 className="text-xl font-bold mb-2">Cookies</h2>
+				<p className="mb-4">
+					Notre site web ne dépose pas de cookies sur votre appareil, que ce
+					soit des cookies de suivi, d&apos;analyse ou de publicité. Nous respectons
+					votre confidentialité et ne collectons pas d&apos;informations personnelles
+					via des cookies.
+				</p>
 				<h2 className="text-xl font-bold mb-2">
 					Vos droits en matière de données personnelles
 				</h2>
