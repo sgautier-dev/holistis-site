@@ -10,7 +10,7 @@ export function getEmbeddedYouTubeUrl(videoUrl: string): string | null {
 		if (/youtube\.com$/.test(url.hostname)) {
 			const videoId = url.searchParams.get("v");
 
-			if (videoId) {
+			if (videoId && /^[A-Za-z0-9_-]{11}$/.test(videoId)) {
 				return `https://www.youtube-nocookie.com/embed/${videoId}?controls=1&modestbranding=1`;
 			}
 		}
