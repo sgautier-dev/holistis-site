@@ -50,7 +50,7 @@ export default function Contact() {
 		setSubmitMessage("Envoi en cours...");
 
 		const token = await getRecaptchaToken();
-		// console.log('token', token)
+
 		if (!token) {
 			setSubmitError(
 				"Erreur lors de la vérification de sécurité. Veuillez réessayer."
@@ -68,7 +68,6 @@ export default function Contact() {
 		try {
 			if (agreed) {
 				// sending newsletter's subscription
-				// console.log('email for newsletter: ', email)
 				const response = await fetch("/api/subscribe", {
 					method: "POST",
 					headers: {
@@ -106,8 +105,6 @@ export default function Contact() {
 					data.message || "Une erreur est survenue. Veuillez réessayer."
 				);
 			}
-
-			// throw new Error('test erreur')
 		} catch (error: any) {
 			console.error(error);
 			setSubmitError(error.message);

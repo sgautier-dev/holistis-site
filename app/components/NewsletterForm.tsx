@@ -27,7 +27,7 @@ export default function NewsletterForm() {
 		setMessage("");
 
 		const token = await getRecaptchaToken();
-		// console.log("token", token);
+
 		if (!token) {
 			setMessage(
 				"Erreur lors de la vérification de sécurité. Veuillez réessayer."

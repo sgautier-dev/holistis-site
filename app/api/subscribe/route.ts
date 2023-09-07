@@ -51,7 +51,6 @@ export async function POST(req: NextRequest) {
 		});
 
 		if (response.status === "subscribed") {
-			// console.log('response status: ', response.status)
 			return NextResponse.json(
 				{
 					message: "Abonnement confirmé ! Merci de vous être abonné.",
