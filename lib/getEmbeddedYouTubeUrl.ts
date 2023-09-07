@@ -7,7 +7,7 @@ export function getEmbeddedYouTubeUrl(videoUrl: string): string | null {
 		const url = new URL(videoUrl);
 
 		// Check if the hostname is a youtube domain
-		if (url.hostname === "youtube.com" || url.hostname === "www.youtube.com") {
+		if (/youtube\.com$/.test(url.hostname)) {
 			const videoId = url.searchParams.get("v");
 
 			if (videoId) {
