@@ -8,6 +8,9 @@ mailchimp.setConfig({
 	server: process.env.MAILCHIMP_SERVER,
 });
 
+/*
+Subscribe form route: It validates an email address, verifies a reCAPTCHA token, and adds the email address to a Mailchimp mailing list if all validations pass.
+*/
 export async function POST(req: NextRequest) {
 	const { email, token } = await req.json();
 

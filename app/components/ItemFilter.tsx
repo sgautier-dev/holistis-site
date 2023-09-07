@@ -13,6 +13,11 @@ function classNames(...classes: string[]) {
 	return classes.filter(Boolean).join(" ");
 }
 
+/*
+Component: that displays a dropdown menu for selecting an item from a list of unique items. 
+The selected item is stored in the selectedItem state variable and can be updated by calling the setSelectedItem function. 
+The dropdown menu is implemented using the Menu and Transition components from the @headlessui/react library.
+*/
 export default function ItemFilter({
 	uniqueItems,
 	selectedItem,
@@ -62,13 +67,6 @@ export default function ItemFilter({
 									<button
 										onClick={() => {
 											setSelectedItem(item);
-											// // Find the target element and scroll to it
-											// const targetElement =
-											// 	document.getElementById("targetElement");
-											// targetElement?.scrollIntoView({
-											// 	behavior: "smooth",
-											// 	block: "start",
-											// });
 										}}
 										className={classNames(
 											active ? "bg-gray-100" : "",

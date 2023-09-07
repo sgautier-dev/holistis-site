@@ -1,3 +1,7 @@
+/*
+Function: takes a video URL as input and returns the embedded YouTube URL for that video. 
+If the input URL is not a valid YouTube URL or does not contain a video ID, it returns null.
+*/
 export function getEmbeddedYouTubeUrl(videoUrl: string): string | null {
 	try {
 		const url = new URL(videoUrl);

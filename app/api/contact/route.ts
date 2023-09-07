@@ -14,6 +14,12 @@ const transporter = nodemailer.createTransport({
 	},
 });
 
+/*
+Contact form route: It receives the request body containing the data and token parameters. 
+It validates the input data, including the email format, and verifies the reCAPTCHA token. 
+If the validation and verification pass, it sends an email using the sendEmail function. 
+If there is an error during the process, it logs the error and returns an appropriate response.
+*/
 function sendEmail(
 	firstName: string,
 	lastName: string,
@@ -30,10 +36,6 @@ function sendEmail(
 
 export async function POST(req: NextRequest) {
 	const { firstName, lastName, email, message, token } = await req.json();
-
-	// console.log('SMTP_PASS', process.env.SMTP_PASS)
-
-	// console.log('data: ',`${firstName} ${lastName} ${email} ${message}`)
 
 	if (!email || !firstName || !lastName || !message)
 		return NextResponse.json(

@@ -58,6 +58,12 @@ function validateData(campaignData: CampaignData) {
 	}
 }
 
+/*
+Newsletter route: Triggered by a sanity webhook. 
+It validates the input data and verifies the webhook signature. 
+If the validation and verification pass, it creates a campaign draft in MailChimp with the provided data and returns a success response. 
+If there is an error during the process, it logs the error and returns an appropriate error response.
+*/
 export async function POST(req: NextRequest) {
 	const signature = req.headers.get(SIGNATURE_HEADER_NAME);
 	const body = await req.text(); // Read the body into a string
@@ -92,8 +98,6 @@ export async function POST(req: NextRequest) {
 		link: `${siteUrl}/overview/${slug.current}`,
 		formatted_title: formattedTitle,
 	};
-
-	// console.log(campaignData);
 
 	try {
 		validateData(campaignData);

@@ -8,6 +8,9 @@ type ResourceMediaProps = {
 	alt: Resource["alt"];
 };
 
+/*
+Component: renders different types of media based on the mediaType prop. It handles video, image, web, document, and audio media types, and provides fallbacks for unsupported types.
+*/
 export default function ResourceMedia({
 	mediaType,
 	media,
