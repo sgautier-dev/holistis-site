@@ -7,7 +7,7 @@ export async function getAllOverview(): Promise<Overview[]> {
 		  _id,
 		  title
 		}}`;
-	const articles: Overview[] = await client.fetch(query, { next: { tags: ['overview'] } });
+	const articles: Overview[] = await client.fetch(query);
 
 	return articles;
 }
