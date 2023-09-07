@@ -20,9 +20,8 @@ Copy the `.env.local.sample` file to a new files named `.env.local`.
 - Node.js: 18.x
 - Frontend: Next.js 13.x App Router
 - Backend: Next.js API routes
-- Database: Prisma 5.x
-- Authentication: Clerk 4.x
-- Payment: Stripe 12.x with webhook
+- Database: Sanity 3.x
+- Email: Nodemailer 6.x
 - State Management: React 18.x
 - CSS: Tailwind CSS 3.x
 - Logging: Pino 8.x
@@ -31,7 +30,7 @@ Copy the `.env.local.sample` file to a new files named `.env.local`.
 
 1. Clone the repository.
 2. Run `npm install`.
-3. Add your environments variables in `.env` and `.env.local`.
+3. Add your environments variables in `.env.local`.
 
 ## Usage
 
@@ -43,12 +42,10 @@ Please submit a pull request for any changes.
 
 ## License
 
-This project is the property of LFIT. All rights are reserved. Unauthorized copying, modification, or distribution is not permitted.
+This project is the property of HOLISTIS. All rights are reserved. Unauthorized copying, modification, or distribution is not permitted.
 
 ## Contact
 
 For more information, contact sgautier.dev@gmail.com
-
-```
 
 ```
