@@ -15,6 +15,7 @@ export async function getRandomQuestion(): Promise<BasicQuestion> {
 		console.error("Error fetching question:", error);
 		return {
 			//default question in case of error
+			category: "180°",
 			questionText:
 				"ET SI LE TEMPS LONG ÉTAIT TOUT aussi IMPORTANT QUE LE TEMPS COURT ?",
 		};
