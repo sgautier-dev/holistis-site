@@ -1,18 +1,18 @@
-import Articles from "@/app/components/Articles";
-import Image from "next/image";
-import { getAllOverview } from "@/sanity/lib/getAllOverview";
-import { notFound } from "next/navigation";
+import Articles from "@/app/components/Articles"
+import Image from "next/image"
+import { getAllOverview } from "@/sanity/lib/getAllOverview"
+import { notFound } from "next/navigation"
 import overviewBanner from "@/public/images/Website_Overview_bandeau-3300X1018.jpg"
 
 export const metadata = {
 	title: "Overview",
-};
+}
 
 export default async function Overview() {
-	const articles: Overview[] = await getAllOverview();
+	const articles: Overview[] = await getAllOverview()
 
 	if (!articles.length) {
-		notFound();
+		notFound()
 	}
 
 	return (
@@ -37,11 +37,14 @@ export default async function Overview() {
 						moitié d&apos;entre eux reconnaissent avoir radicalement changé
 						ensuite. Chacun de nous a vécu un ou plusieurs « overview effect »,
 						de plus ou moins grande importance. C’est ce moment où notre
-						perception change, et où l’après ne sera plus comme avant.
+						perception change, et où l’après ne sera plus comme avant. C’est
+						également le titre de la newsletter. À chaque numéro, un thème en
+						lien avec la transformation, le leadership ou le management, et
+						exploré depuis différentes perspectives.
 					</p>
 				</blockquote>
 			</figure>
 			<Articles articles={articles} />
 		</main>
-	);
+	)
 }
