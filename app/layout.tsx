@@ -73,6 +73,7 @@ export const metadata = {
 	description:
 		"Ici vous découvrirez mes sources d’inspiration pour vous accompagner individuellement ou collectivement. Elles invitent à des changements de perspective. Je vous souhaite qu’elles vous offrent des perspectives de changement.",
 	authors: [{ name: "Sébastien Gautier", url: "https://www.sgautier.dev" }],
+	metadataBase: new URL(process.env.SITE_URL!),
 };
 
 // export const revalidate = 60; //to get freshest data from sanity, replaced by on demand revalidation
